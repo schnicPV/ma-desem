@@ -1,14 +1,14 @@
 /* 
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Module: 			MA_DeSEm
-* Chapter: 			C++ primer
-* Exercicse: 		#1
-* Author:			schnic
-* Creation Date:	2022/10/03
+* Module:           MA_DeSEm
+* Chapter:          C++ primer
+* Exercicse:        #1
+* Author:           schnic
+* Creation Date:    2022/10/03
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Class: 			forms
-* Purpose:			Build the parent class of all different forms
-* Inheritance:		"forms" is the parent of "line", "rectangle", "circle"
+* Class:            forms
+* Purpose:          Build the parent class of all different forms
+* Inheritance:      "forms" is the parent of "line", "rectangle", "circle"
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
 #ifndef FORMS_H
@@ -16,14 +16,14 @@
 
 class Forms
 {
-	public:
-		Forms(Point pUL, Point pLR, color col);
-		void printInfo();
+    public:
+        Forms(Point pUL, Point pLR, color col);
+        void printInfo();
 
-	protected:
-		Point uL;
-		Point lR;
-		color clr;
+    protected:
+        Point uL;
+        Point lR;
+        color clr;
 };
 
 #endif

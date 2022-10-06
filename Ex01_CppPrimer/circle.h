@@ -1,14 +1,14 @@
 /* 
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Module: 			MA_DeSEm
-* Chapter: 			C++ primer
-* Exercicse: 		#1
-* Author:			schnic
-* Creation Date:	2022/10/03
+* Module:           MA_DeSEm
+* Chapter:          C++ primer
+* Exercicse:        #1
+* Author:           schnic
+* Creation Date:    2022/10/03
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Class: 			circle
-* Purpose:			Build a circle object
-* Inheritance:		"circle" is a child of "forms" 
+* Class:            circle
+* Purpose:          Build a circle object
+* Inheritance:      "circle" is a child of "forms" 
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
 #include "forms.h"

@@ -1,14 +1,14 @@
 /* 
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Module: 			MA_DeSEm
-* Chapter: 			C++ primer
-* Exercicse: 		#1
-* Author:			schnic
-* Creation Date:	2022/10/03
+* Module:           MA_DeSEm
+* Chapter:          C++ primer
+* Exercicse:        #1
+* Author:           schnic
+* Creation Date:    2022/10/03
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Class: 			rectangle
-* Purpose:			Build a rectangle object
-* Inheritance:		"rectangle" is a child of "forms" 
+* Class:            rectangle
+* Purpose:          Build a rectangle object
+* Inheritance:      "rectangle" is a child of "forms" 
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
 #include "forms.h"

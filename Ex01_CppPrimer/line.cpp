@@ -1,21 +1,21 @@
 /* 
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Module: 			MA_DeSEm
-* Chapter: 			C++ primer
-* Exercicse: 		#1
-* Author:			schnic
-* Creation Date:	2022/10/03
+* Module:           MA_DeSEm
+* Chapter:          C++ primer
+* Exercicse:        #1
+* Author:           schnic
+* Creation Date:    2022/10/03
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Class: 			line
-* Purpose:			Build a line object
-* Inheritance:		"line" is a child of "forms" 
+* Class:            line
+* Purpose:          Build a line object
+* Inheritance:      "line" is a child of "forms" 
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
 #include "line.h"
 
 Line::Line(Point pUL, Point pLR, color col) : Forms(pUL, pLR, col)
 {
-	type = "line";
+    type = "line";
 }
 
 void Line::getInfo()
