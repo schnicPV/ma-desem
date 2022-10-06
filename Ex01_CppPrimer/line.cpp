@@ -15,10 +15,10 @@
 
 Line::Line(Point pUL, Point pLR, color col) : Forms(pUL, pLR, col)
 {
-    type = "line";
+    type = "LINE";
 }
 
-void Line::getInfo()
-{
-
-}
+// void Line::getInfo()
+// {
+//     cout << "I am a LINE"
+// }

@@ -14,6 +14,7 @@
 #ifndef FORMS_H
 #define FORMS_H
 
+// definition of the class structure
 class Forms
 {
     public:
@@ -24,6 +25,8 @@ class Forms
         Point uL;
         Point lR;
         color clr;
+        
+        String type;
 };
 
 #endif

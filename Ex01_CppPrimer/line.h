@@ -14,13 +14,15 @@
 #ifndef LINE_H
 #define LINE_H
 
+// definition of the class 'Line', which inherits from the class 'Forms'
 class Line : public Forms
 {
     public:
         Line(Point pUL, Point pLR, color col);
+        void getInfo();
 
     protected:
-        String type;
+        String type;     // maybe this is unnecessary!
 };
 
 #endif
