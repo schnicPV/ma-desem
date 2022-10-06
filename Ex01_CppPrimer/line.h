@@ -14,6 +14,10 @@
 #ifndef LINE_H
 #define LINE_H
 
+#include <string>
+
+#include "forms.h"
+
 // definition of the class 'Line', which inherits from the class 'Forms'
 class Line : public Forms
 {

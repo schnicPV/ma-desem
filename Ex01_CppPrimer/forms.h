@@ -14,6 +14,10 @@
 #ifndef FORMS_H
 #define FORMS_H
 
+#include <iostream>
+using namespace std
+#include <string>
+
 // definition of the class structure
 class Forms
 {
@@ -25,7 +29,7 @@ class Forms
         Point uL;
         Point lR;
         color clr;
-        
+
         String type;
 };
 

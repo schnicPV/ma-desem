@@ -11,7 +11,6 @@
 * Inheritance:      "forms" is the parent of "line", "rectangle", "circle"
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
-#include <iostream>
 #include "forms.h"
 
 // definition of the constructor
