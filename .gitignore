@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# directory created by Visual Studio Code
+.vscode/
