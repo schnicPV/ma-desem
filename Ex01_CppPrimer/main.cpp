@@ -13,12 +13,11 @@
 
 #include <iostream>
 using namespace std;
-#include <string>
+// #include <string>
 
-#include "color.h"
+#include "point.h"
 
 #include "line.h"
-#include "Point.h"
 // #include "rectangle.h"
 // #include "circle.h"
 

@@ -17,9 +17,9 @@
 class Point
 {
     public:
+        Point();
         Point(float cX, float cY);
-
-    protected:
+        // char point2str();
         float x;
         float y;
 };

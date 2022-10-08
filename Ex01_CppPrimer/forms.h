@@ -14,9 +14,17 @@
 #ifndef FORMS_H
 #define FORMS_H
 
-#include <iostream>
-using namespace std
 #include <string>
+// #include <iostream>
+// using namespace std;
+
+#include "point.h"
+
+// color definition
+enum color
+{
+    red, blue, green, yellow, purple
+};
 
 // definition of the class structure
 class Forms
@@ -30,7 +38,7 @@ class Forms
         Point lR;
         color clr;
 
-        String type;
+        std::string type;
 };
 
 #endif

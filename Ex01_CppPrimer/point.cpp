@@ -12,9 +12,21 @@
 */
 #include "point.h"
 
-// definition of the constructor
-Point::Point(float cX, float cY)
+// definition of the constructors
+Point::Point()                          // default constructor
+{
+
+}
+
+Point::Point(float cX, float cY)        // constructor to add the x,y values
 {
     x = cX;
     y = cY;
 }
+
+// // definition of functions
+// string Point::point2str()
+// {
+//     string ret = "(" + this->x + " | " + this->y + ")";
+//     return ret;
+// }

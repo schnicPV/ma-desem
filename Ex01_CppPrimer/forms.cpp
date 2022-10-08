@@ -12,6 +12,10 @@
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
 #include "forms.h"
+#include <iostream>
+using namespace std;
+
+#include <string>
 
 // definition of the constructor
 Forms::Forms(Point pUL, Point pLR, color col)
@@ -22,7 +26,7 @@ Forms::Forms(Point pUL, Point pLR, color col)
 }
 
 // definition of the geInfo function
-Forms::getInfo()
+void Forms::printInfo()
 {
-    cout << "I am a" << type;
+    cout << "I am a" << clr << " " << type << " between Point1(" << this->uL.x << " | " << this->uL.y << ") and Point2(" << this->lR.x << " | " << this->lR.y << ")";
 }

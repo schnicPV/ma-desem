@@ -18,7 +18,7 @@ Line::Line(Point pUL, Point pLR, color col) : Forms(pUL, pLR, col)
     type = "LINE";
 }
 
-// void Line::getInfo()
-// {
-//     cout << "I am a LINE"
-// }
+void Line::printInfo()
+{
+    Forms::printInfo();
+}

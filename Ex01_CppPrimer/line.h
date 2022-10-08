@@ -23,10 +23,10 @@ class Line : public Forms
 {
     public:
         Line(Point pUL, Point pLR, color col);
-        void getInfo();
+        void printInfo();
 
     protected:
-        String type;     // maybe this is unnecessary!
+        std::string type;     // maybe this is unnecessary!
 };
 
 #endif
