@@ -26,8 +26,7 @@ class Line : public Forms
         void printInfo();
 
     protected:
-        // int* pType;
-        std::string type;     // maybe this is unnecessary!
+        // color* pCol;
 };
 
 #endif

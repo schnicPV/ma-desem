@@ -25,34 +25,35 @@ Forms::Forms(Point pUL, Point pLR, color col)
     clr = col;
 }
 
+// definition of function to transform color to string (used to print out color)
+std::string Forms::col2str(color in)
+{
+    string retStr = "";
+    switch(in) {
+        case red:
+            retStr = "red";
+            break;
+        case blue:
+            retStr = "blue";
+            break;
+        case green:
+            retStr = "green";
+            break;
+        case yellow:
+            retStr = "yellow";
+            break;
+        case purple:
+            retStr = "purple";
+            break;
+        default:
+            retStr = "undef";
+            break;
+    }
+    return retStr;
+}
+
 // definition of the geInfo function
 void Forms::printInfo()
 {
-    cout << "I am a " << /*Forms::decodeColor(clr)*/ clr << " " << type << " between Point1 (" << this->uL.x << " | " << this->uL.y << ") and Point2 (" << this->lR.x << " | " << this->lR.y << ")\n";
+    cout << "I'm a " << this->col2str(clr) << " " << type << " between Point1 (" << this->uL.x << " | " << this->uL.y << ") and Point2 (" << this->lR.x << " | " << this->lR.y << ")\n";
 }
-
-// std::string decodeColor(color in)
-// {
-//     string retStr = "";
-//     switch(in) {
-//         case red:
-//             retStr = "red";
-//             break;
-//         case blue:
-//             retStr = "blue";
-//             break;
-//         case green:
-//             retStr = "green";
-//             break;
-//         case yellow:
-//             retStr = "yellow";
-//             break;
-//         case purple:
-//             retStr = "purple";
-//             break;
-//         default:
-//             retStr = "undef";
-//             break;
-//     }
-//     return retStr;
-// }

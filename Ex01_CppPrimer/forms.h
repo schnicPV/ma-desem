@@ -32,7 +32,6 @@ class Forms
     public:
         Forms(Point pUL, Point pLR, color col);
         void printInfo();
-        // std::string decodeColor(color in);
 
     protected:
         Point uL;
@@ -40,6 +39,7 @@ class Forms
         color clr;
 
         std::string type;
+        std::string col2str(color in);
 };
 
 #endif
