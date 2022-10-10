@@ -19,7 +19,7 @@ class Point
     public:
         Point();
         Point(float cX, float cY);
-        // char point2str();
+
         float x;
         float y;
 };

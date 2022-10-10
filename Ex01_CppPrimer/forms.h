@@ -15,9 +15,6 @@
 #define FORMS_H
 
 #include <string>
-// #include <iostream>
-// using namespace std;
-
 #include "point.h"
 
 // color definition
@@ -40,6 +37,7 @@ class Forms
 
         std::string type;
         std::string col2str(color in);
+        std::string point2str(Point in);
 };
 
 #endif

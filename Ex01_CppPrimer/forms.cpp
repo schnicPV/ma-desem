@@ -14,7 +14,6 @@
 #include "forms.h"
 #include <iostream>
 using namespace std;
-
 #include <string>
 
 // definition of the constructor
@@ -52,8 +51,15 @@ std::string Forms::col2str(color in)
     return retStr;
 }
 
+// definition of functions to transform point components to string
+std::string Forms::point2str(Point in)
+{
+    std::string ret = "(" + std::to_string(in.x) + " | " + std::to_string(in.y) + ")";
+    return ret;
+}
+
 // definition of the geInfo function
 void Forms::printInfo()
 {
-    cout << "I'm a " << this->col2str(clr) << " " << type << " between Point1 (" << this->uL.x << " | " << this->uL.y << ") and Point2 (" << this->lR.x << " | " << this->lR.y << ")\n";
+    cout << "I'm a " << this->col2str(clr) << " " << type << " between Point1 " << this->point2str(uL) << " and Point2 " << this->point2str(lR) << "\n";
 }
