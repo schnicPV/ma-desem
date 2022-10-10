@@ -13,7 +13,7 @@
 */
 #ifndef LINE_H
 #define LINE_H
-
+#include <iostream>
 #include <string>
 
 #include "forms.h"
@@ -26,6 +26,7 @@ class Line : public Forms
         void printInfo();
 
     protected:
+        // int* pType;
         std::string type;     // maybe this is unnecessary!
 };
 

@@ -15,10 +15,11 @@
 
 Line::Line(Point pUL, Point pLR, color col) : Forms(pUL, pLR, col)
 {
-    type = "LINE";
+    Forms::type = "LINE";
 }
 
 void Line::printInfo()
 {
+    // pType = &type;
     Forms::printInfo();
 }

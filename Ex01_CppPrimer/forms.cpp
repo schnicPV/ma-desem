@@ -28,5 +28,31 @@ Forms::Forms(Point pUL, Point pLR, color col)
 // definition of the geInfo function
 void Forms::printInfo()
 {
-    cout << "I am a" << clr << " " << type << " between Point1(" << this->uL.x << " | " << this->uL.y << ") and Point2(" << this->lR.x << " | " << this->lR.y << ")";
+    cout << "I am a " << /*Forms::decodeColor(clr)*/ clr << " " << type << " between Point1 (" << this->uL.x << " | " << this->uL.y << ") and Point2 (" << this->lR.x << " | " << this->lR.y << ")\n";
 }
+
+// std::string decodeColor(color in)
+// {
+//     string retStr = "";
+//     switch(in) {
+//         case red:
+//             retStr = "red";
+//             break;
+//         case blue:
+//             retStr = "blue";
+//             break;
+//         case green:
+//             retStr = "green";
+//             break;
+//         case yellow:
+//             retStr = "yellow";
+//             break;
+//         case purple:
+//             retStr = "purple";
+//             break;
+//         default:
+//             retStr = "undef";
+//             break;
+//     }
+//     return retStr;
+// }
