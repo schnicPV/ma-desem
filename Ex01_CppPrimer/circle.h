@@ -6,9 +6,22 @@
 * Author:           schnic
 * Creation Date:    2022/10/03
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Class:            circle
+* Class:            Circle
 * Purpose:          Build a circle object
-* Inheritance:      "circle" is a child of "forms" 
+* Inheritance:      "Circle" is a child of "Forms" 
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
+#ifndef CIRCLE_H
+#define CIRCLE_H
+#include <iostream>
 #include "forms.h"
+
+// definition of the class 'Circle', which inherits from the class 'Forms'
+class Circle : public Forms
+{
+    public:
+        Circle(Point pUL, Point pLR, color col);
+        void printInfo();
+};
+
+#endif

@@ -4,24 +4,21 @@
 * Chapter:          C++ primer
 * Exercicse:        #1
 * Author:           schnic
-* Creation Date:    2022/10/03
+* Creation Date:    2022/10/12
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 * Class:            Rectangle
 * Purpose:          Build a rectangle object
-* Inheritance:      "Rectangle" is a child of "forms" 
+* Inheritance:      "Rectangle" is a child of "Forms" 
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
-#include <iostream>
-#include "forms.h"
+#include "rectangle.h"
 
-// definition of the class 'Rectangle', which inherits from the class 'Forms'
-class Rectangle : public Forms
+Rectangle::Rectangle(Point pUL, Point pLR, color col) : Forms(pUL, pLR, col)
 {
-    public:
-        Rectangle(Point pUL, Point pLR, color col);
-        void printInfo();
-};
+    Forms::type = "RECTANGLE";
+}
 
-#endif
+void Rectangle::printInfo()
+{
+    Forms::printInfo();
+}
