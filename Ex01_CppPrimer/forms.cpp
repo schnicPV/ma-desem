@@ -14,7 +14,6 @@
 #include "forms.h"
 #include <iostream>
 using namespace std;
-#include <string>
 
 // definition of the constructor
 Forms::Forms(Point pUL, Point pLR, color col)

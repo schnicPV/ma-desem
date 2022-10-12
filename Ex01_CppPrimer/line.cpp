@@ -16,9 +16,11 @@
 Line::Line(Point pUL, Point pLR, color col) : Forms(pUL, pLR, col)
 {
     Forms::type = "LINE";
+    length = powf(powf(pUL.x - pLR.x, 2) + powf(pUL.y - pLR.y, 2), 0.5);
 }
 
 void Line::printInfo()
 {
     Forms::printInfo();
+    std::cout << "=> the length is: " << length << "\n";
 }
