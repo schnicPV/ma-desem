@@ -6,9 +6,9 @@
 * Author:           schnic
 * Creation Date:    2022/10/03
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Class:            forms
+* Class:            Forms
 * Purpose:          Build the parent class of all different forms
-* Inheritance:      "forms" is the parent of "line", "rectangle", "circle"
+* Inheritance:      "Forms" is the parent of "Line", "Rectangle", "Circle"
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
 #ifndef FORMS_H
@@ -23,6 +23,9 @@ enum color
     red, blue, green, yellow, purple
 };
 
+// strings of color definitions, used to print out names of enumerations
+static const char* colStr[] = {"red", "blue", "green", "yellow", "purple"};
+
 // definition of the class structure
 class Forms
 {
@@ -34,9 +37,9 @@ class Forms
         Point uL;
         Point lR;
         color clr;
-
         std::string type;
-        std::string col2str(color in);
+
+        const char* col2str(int enumVal);
         std::string point2str(Point in);
 };
 

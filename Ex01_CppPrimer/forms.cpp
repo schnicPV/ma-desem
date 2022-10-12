@@ -8,7 +8,7 @@
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 * Class:            forms
 * Purpose:          Build the parent class of all different forms
-* Inheritance:      "forms" is the parent of "line", "rectangle", "circle"
+* Inheritance:      "Forms" is the parent of "Line", "Rectangle", "Circle"
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
 #include "forms.h"
@@ -25,41 +25,19 @@ Forms::Forms(Point pUL, Point pLR, color col)
 }
 
 // definition of function to transform color to string (used to print out color)
-std::string Forms::col2str(color in)
+const char* Forms::col2str(int enumVal)
 {
-    string retStr = "";
-    switch(in) {
-        case red:
-            retStr = "red";
-            break;
-        case blue:
-            retStr = "blue";
-            break;
-        case green:
-            retStr = "green";
-            break;
-        case yellow:
-            retStr = "yellow";
-            break;
-        case purple:
-            retStr = "purple";
-            break;
-        default:
-            retStr = "undef";
-            break;
-    }
-    return retStr;
+    return colStr[enumVal];
 }
 
-// definition of functions to transform point components to string
+// definition of function to transform point components to string
 std::string Forms::point2str(Point in)
 {
-    std::string ret = "(" + std::to_string(in.x) + " | " + std::to_string(in.y) + ")";
-    return ret;
+    return "(" + std::to_string(in.x) + "|" + std::to_string(in.y) + ")";
 }
 
-// definition of the geInfo function
+// definition of the printInfo function
 void Forms::printInfo()
 {
-    cout << "I'm a " << this->col2str(clr) << " " << type << " between Point1 " << this->point2str(uL) << " and Point2 " << this->point2str(lR) << "\n";
+    cout << "A " << col2str(clr) << " " << type << " between Point" << point2str(uL) << " and Point" << point2str(lR) << "\n";
 }

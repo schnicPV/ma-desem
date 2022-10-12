@@ -6,15 +6,14 @@
 * Author:           schnic
 * Creation Date:    2022/10/03
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Class:            line
+* Class:            Line
 * Purpose:          Build a line object
-* Inheritance:      "line" is a child of "forms" 
+* Inheritance:      "Line" is a child of "Forms" 
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
 #ifndef LINE_H
 #define LINE_H
 #include <iostream>
-#include <string>
 #include "forms.h"
 
 // definition of the class 'Line', which inherits from the class 'Forms'

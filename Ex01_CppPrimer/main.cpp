@@ -20,7 +20,8 @@ using namespace std;
 
 int main()
 {
-    cout << "...start main\n\n";
+    cout << "The following objects have been stored: \n";
+
     Line l1(Point(10,10), Point(40,40), color::blue);
     // Rectangle r1(Point(10,50), Point(40,90), color::purple);
     // Circle c1(Point(10,90), Point(40,140), color::yellow);
@@ -29,6 +30,5 @@ int main()
     // r1.printInfo();
     // c1.printInfo();
 
-    cout << "\n...end main\n";
     return 0;
 }
