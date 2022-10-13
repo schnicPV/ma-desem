@@ -14,6 +14,7 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 #include <iostream>
+#include <cmath>
 #include "forms.h"
 
 // definition of the class 'Circle', which inherits from the class 'Forms'
@@ -21,6 +22,9 @@ class Circle : public Forms
 {
     public:
         Circle(Point pUL, Point pLR, color col);
+        float radius;
+        float circumference;
+        float surface;
         void printInfo();
 };
 

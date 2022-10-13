@@ -13,7 +13,6 @@
 */
 #ifndef FORMS_H
 #define FORMS_H
-
 #include <string>
 #include "point.h"
 
@@ -25,6 +24,9 @@ enum color
 
 // strings of color definitions, used to print out names of enumerations
 static const char* colStr[] = {"red", "blue", "green", "yellow", "purple"};
+
+// definition of pi
+static const float PI = 3.1415926536f;
 
 // definition of the class structure
 class Forms

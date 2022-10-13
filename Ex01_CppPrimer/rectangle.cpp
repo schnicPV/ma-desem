@@ -15,10 +15,16 @@
 
 Rectangle::Rectangle(Point pUL, Point pLR, color col) : Forms(pUL, pLR, col)
 {
+    float deltaX = abs(pUL.x - pLR.x);
+    float deltaY = abs(pUL.y - pLR.y);
+    
     Forms::type = "RECTANGLE";
+    circumference = 2*(deltaX + deltaY);
+    surface = deltaX*deltaY;
 }
 
 void Rectangle::printInfo()
 {
     Forms::printInfo();
+    std::cout << "=> circumference = " << circumference << ", surface = " << surface << "\n";
 }

@@ -15,12 +15,15 @@
 
 Line::Line(Point pUL, Point pLR, color col) : Forms(pUL, pLR, col)
 {
+    float deltaX = abs(pUL.x - pLR.x);
+    float deltaY = abs(pUL.y - pLR.y);
+    
     Forms::type = "LINE";
-    length = powf(powf(pUL.x - pLR.x, 2) + powf(pUL.y - pLR.y, 2), 0.5);
+    length = powf(powf(deltaX, 2) + powf(deltaY, 2), 0.5);
 }
 
 void Line::printInfo()
 {
     Forms::printInfo();
-    std::cout << "=> the length is: " << length << "\n";
+    std::cout << "=> length = " << length << "\n";
 }

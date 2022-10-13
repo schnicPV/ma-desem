@@ -21,6 +21,8 @@ class Rectangle : public Forms
 {
     public:
         Rectangle(Point pUL, Point pLR, color col);
+        float circumference;
+        float surface;
         void printInfo();
 };
 
