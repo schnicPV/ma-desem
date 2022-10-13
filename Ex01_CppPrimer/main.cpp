@@ -12,7 +12,6 @@
 #include <iostream>
 using namespace std;
 
-#include "point.h"
 #include "line.h"
 #include "rectangle.h"
 #include "circle.h"
