@@ -6,16 +6,15 @@
 * Author:           schnic
 * Creation Date:    2022/10/03
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Class:            line
+* Class:            Line
 * Purpose:          Build a line object
-* Inheritance:      "line" is a child of "forms" 
+* Inheritance:      "Line" is a child of "Forms" 
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
 #ifndef LINE_H
 #define LINE_H
-
-#include <string>
-
+#include <iostream>
+#include <cmath>
 #include "forms.h"
 
 // definition of the class 'Line', which inherits from the class 'Forms'
@@ -23,10 +22,8 @@ class Line : public Forms
 {
     public:
         Line(Point pUL, Point pLR, color col);
-        void getInfo();
-
-    protected:
-        String type;     // maybe this is unnecessary!
+        float length;
+        void printInfo();
 };
 
 #endif

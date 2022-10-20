@@ -6,9 +6,24 @@
 * Author:           schnic
 * Creation Date:    2022/10/03
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
-* Class:            rectangle
+* Class:            Rectangle
 * Purpose:          Build a rectangle object
-* Inheritance:      "rectangle" is a child of "forms" 
+* Inheritance:      "Rectangle" is a child of "forms" 
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
+#include <iostream>
 #include "forms.h"
+
+// definition of the class 'Rectangle', which inherits from the class 'Forms'
+class Rectangle : public Forms
+{
+    public:
+        Rectangle(Point pUL, Point pLR, color col);
+        float circumference;
+        float surface;
+        void printInfo();
+};
+
+#endif

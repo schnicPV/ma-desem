@@ -8,10 +8,12 @@
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 * Class:            forms
 * Purpose:          Build the parent class of all different forms
-* Inheritance:      "forms" is the parent of "line", "rectangle", "circle"
+* Inheritance:      "Forms" is the parent of "Line", "Rectangle", "Circle"
 * -----------------------------------------------------------------------------------------------------------------------------------------------*
 */
 #include "forms.h"
+#include <iostream>
+using namespace std;
 
 // definition of the constructor
 Forms::Forms(Point pUL, Point pLR, color col)
@@ -21,8 +23,20 @@ Forms::Forms(Point pUL, Point pLR, color col)
     clr = col;
 }
 
-// definition of the geInfo function
-Forms::getInfo()
+// definition of function to transform color to string (used to print out color)
+const char* Forms::col2str(int enumVal)
 {
-    cout << "I am a" << type;
+    return colStr[enumVal];
+}
+
+// definition of function to transform point components to string
+std::string Forms::point2str(Point in)
+{
+    return "(" + std::to_string(in.x) + "|" + std::to_string(in.y) + ")";
+}
+
+// definition of the printInfo function
+void Forms::printInfo()
+{
+    cout << "A " << col2str(clr) << " " << type << " between Point" << point2str(uL) << " and Point" << point2str(lR) << "\n";
 }
