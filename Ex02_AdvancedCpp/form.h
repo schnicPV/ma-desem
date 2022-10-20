@@ -1,6 +1,7 @@
 #ifndef FORM_H
 #define FORM_H
 
+#include <iostream>
 #include <string>
 #include "point.h"
 
@@ -14,12 +15,14 @@ namespace color
 	};
 
 	string toString(colorList color);
+	colorList getColorFromString(string colorName);
 }
 
 class Form
 {
 public:
 	Form(const Point & tl, const Point & br, color::colorList cl);
+	virtual void printInfo();
 
 protected:
 	Point _topLeft;

@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+#include <vector>
 
 #include "line.h"
 #include "rectangle.h"
@@ -7,9 +8,9 @@ using namespace std;
 
 int main()
 {
-    // new interactive ex 2
-    Form* pBase;
+    // parameters
     bool running = true;
+    vector<Form*> formList;
 
     // user values
     string input_type;
@@ -33,35 +34,56 @@ int main()
         input_brY = 0;
 
         // user object definitions
-        cout << "[1] Type your object TYPE:" << endl;
+        cout << "============================================================================================================================" << endl;
+        cout << "[1] Type your object TYPE (line/rectangle/circle) : ";
         cin >> input_type;
-        cout << "[2] Type the COLOR of your object:" << endl;
+        cout << "[2] Type the COLOR of your object (blue/yellow/purple) : ";
         cin >> input_color;
-        cout << "[3] Type the X coordinate of the TOP LEFT corner of your object:" << endl;
+        cout << "[3] Type the X coordinate of the TOP LEFT corner of your object (integer) : ";
         cin >> input_tlX;
-        cout << "[4] Type the Y coordinate of the TOP LEFT corner of your object:" << endl;
+        cout << "[4] Type the Y coordinate of the TOP LEFT corner of your object (integer) : ";
         cin >> input_tlY;
-        cout << "[5] Type the X coordinate of the BOTTOM RIGHT corner of your object:" << endl;
+        cout << "[5] Type the X coordinate of the BOTTOM RIGHT corner of your object (integer) : ";
         cin >> input_tlX;
-        cout << "[6] Type the Y coordinate of the top BOTTOM RIGHT of your object:" << endl;
+        cout << "[6] Type the Y coordinate of the BOTTOM RIGHT cornerof your object (integer) : ";
         cin >> input_tlY;
 
-        // TODO: create object
-
-        // TODO: add object to a list 
+        // add new object to list
+        if((input_type == "line") || (input_type == "Line"))
+        {
+            formList.push_back(new Line(Point(input_tlX,input_tlY),Point(input_brX,input_brY),color::getColorFromString(input_color)));
+        } 
+        else if((input_type == "rectangle") || (input_type == "Rectangle"))
+        {
+            formList.push_back(new Rectangle(Point(input_tlX,input_tlY),Point(input_brX,input_brY),color::getColorFromString(input_color)));
+        }
+        else if((input_type == "circle") || (input_type == "Circle"))
+        {
+            formList.push_back(new Circle(Point(input_tlX,input_tlY),Point(input_brX,input_brY),color::getColorFromString(input_color)));
+        }
+        else
+        {
+            cout << "\n[ERROR] invalid form input!" << endl;
+        }
 
         // print all objects (printinfo)
-        cout >> "[x] Do you want to print out your stored objects? (y/n)" << endl;
+        cout << "----------------------------------------------------------------------------------------------------------------------------" << endl;
+        cout << "[x] Do you want to print out your stored objects? (y/n) : ";
         cin >> input_answer;
 
         if(((input_answer == "y") || (input_answer == "Y"))) 
         {
-            // insert for loop
+            for(int vIdx = 0; vIdx < formList.size(); vIdx++)
+            {
+                cout << "[object @ index " << vIdx << "] ";
+                formList[vIdx]->printInfo();
+            }
         }
         input_answer = "";
 
         // ask user if more objects should be stored
-        cout << "[x] Do you want to store another object? (y/n)" << endl;
+        cout << "----------------------------------------------------------------------------------------------------------------------------" << endl;
+        cout << "[x] Do you want to store another object? (y/n) : ";
         cin >> input_answer;
 
         if(!((input_answer == "y") || (input_answer == "Y"))) 
@@ -69,16 +91,7 @@ int main()
             running = false;
         }
     }
-
-    // old ex 1
-    Line l1(Point(10,10),Point(40,40), color::blue);
-    Rectangle r1(Point(10,50),Point(40,90), color::purple);
-    Circle c1(Point(10,90),Point(40,140), color::yellow);
-
-    l1.printInfo();
-    r1.printInfo();
-    c1.printInfo();
-
+    cout << "============================================================================================================================" << endl;
     return 0;
 }
 
