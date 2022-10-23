@@ -10,9 +10,9 @@ int main()
 {
     // parameters
     bool running = true;
-    vector<Form*> formList;
+    vector<Form*> formVec;     // store all entered objects into a vector
 
-    // user values
+    // user input values
     string input_type;
     string input_color;
     string input_answer;
@@ -20,8 +20,6 @@ int main()
     uint32_t input_tlY;
     uint32_t input_brX;
     uint32_t input_brY;
-
-    // TODO: list to store all objects
 
     while(running)
     {
@@ -51,15 +49,15 @@ int main()
         // add new object to list
         if((input_type == "line") || (input_type == "Line"))
         {
-            formList.push_back(new Line(Point(input_tlX,input_tlY),Point(input_brX,input_brY),color::getColorFromString(input_color)));
+            formVec.push_back(new Line(Point(input_tlX,input_tlY),Point(input_brX,input_brY),color::getColorFromString(input_color)));
         } 
         else if((input_type == "rectangle") || (input_type == "Rectangle"))
         {
-            formList.push_back(new Rectangle(Point(input_tlX,input_tlY),Point(input_brX,input_brY),color::getColorFromString(input_color)));
+            formVec.push_back(new Rectangle(Point(input_tlX,input_tlY),Point(input_brX,input_brY),color::getColorFromString(input_color)));
         }
         else if((input_type == "circle") || (input_type == "Circle"))
         {
-            formList.push_back(new Circle(Point(input_tlX,input_tlY),Point(input_brX,input_brY),color::getColorFromString(input_color)));
+            formVec.push_back(new Circle(Point(input_tlX,input_tlY),Point(input_brX,input_brY),color::getColorFromString(input_color)));
         }
         else
         {
@@ -73,10 +71,10 @@ int main()
 
         if(((input_answer == "y") || (input_answer == "Y"))) 
         {
-            for(int vIdx = 0; vIdx < formList.size(); vIdx++)
+            for(int vIdx = 0; vIdx < formVec.size(); vIdx++)
             {
                 cout << "[object No " << vIdx+1 << "] ";
-                formList[vIdx]->printInfo();
+                formVec[vIdx]->printInfo();
             }
         }
         input_answer = "";
