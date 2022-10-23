@@ -10,7 +10,7 @@ int main()
 {
     // parameters
     bool running = true;
-    vector<Interface*> formList;
+    vector<Form*> formList;
 
     // user values
     string input_type;
@@ -44,9 +44,9 @@ int main()
         cout << "[4] Type the Y coordinate of the TOP LEFT corner of your object (integer) : ";
         cin >> input_tlY;
         cout << "[5] Type the X coordinate of the BOTTOM RIGHT corner of your object (integer) : ";
-        cin >> input_tlX;
+        cin >> input_brX;
         cout << "[6] Type the Y coordinate of the BOTTOM RIGHT corner of your object (integer) : ";
-        cin >> input_tlY;
+        cin >> input_brY;
 
         // add new object to list
         if((input_type == "line") || (input_type == "Line"))
@@ -75,7 +75,7 @@ int main()
         {
             for(int vIdx = 0; vIdx < formList.size(); vIdx++)
             {
-                cout << "[object @ index " << vIdx << "] ";
+                cout << "[object No " << vIdx+1 << "] ";
                 formList[vIdx]->printInfo();
             }
         }

@@ -7,7 +7,7 @@ class Circle : public Form
 {
 public:
 	Circle(const Point & tl, const Point & br, color::colorList cl);
-	virtual void printInfo() const;
+	virtual void printInfo();
 };
 
 #endif // CIRCLE_H

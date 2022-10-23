@@ -7,7 +7,7 @@ class Line : public Form
 {
 public:
 	Line(const Point & tl, const Point & br, color::colorList cl);
-	virtual void printInfo() const;
+	virtual void printInfo();
 };
 
 #endif // LINE_H

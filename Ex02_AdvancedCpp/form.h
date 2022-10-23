@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include "point.h"
-#include "interface.h"
 
 using namespace std;
 
@@ -19,7 +18,7 @@ namespace color
 	colorList getColorFromString(string colorName);
 }
 
-class Form : public Interface
+class Form
 {
 public:
 	Form(const Point & tl, const Point & br, color::colorList cl);

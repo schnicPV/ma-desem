@@ -8,7 +8,7 @@ Rectangle::Rectangle(const Point & tl, const Point & br, color::colorList cl)
 {
 }
 
-void Rectangle::printInfo() const
+void Rectangle::printInfo()
 {
 	cout << "Rectangle from " << _topLeft.toString() << " to " << _bottonRight.toString()<< " in " << color::toString(_color) << endl;
 }

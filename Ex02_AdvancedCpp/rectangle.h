@@ -7,7 +7,7 @@ class Rectangle : public Form
 {
 public:
 	Rectangle(const Point & tl, const Point & br, color::colorList cl);
-	virtual void printInfo() const;
+	virtual void printInfo();
 };
 
 #endif // RECTANGLE_H

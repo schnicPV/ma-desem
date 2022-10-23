@@ -8,7 +8,7 @@ Line::Line(const Point & tl, const Point & br, color::colorList cl)
 {
 }
 
-void Line::printInfo() const
+void Line::printInfo()
 {
 	cout << "Line from " << _topLeft.toString() << " to " << _bottonRight.toString() << " in " << color::toString(_color) << endl;
 }
