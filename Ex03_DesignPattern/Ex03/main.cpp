@@ -22,7 +22,7 @@ int main()
         cout << "[x] Do you want to print out your stored objects? (y/n) : ";
         cin >> input_answer;
 
-        if(((input_answer == "y") || (input_answer == "Y"))) 
+        if(((input_answer == "y") || (input_answer == "Y")))
         {
             //...
         }
@@ -33,7 +33,7 @@ int main()
         cout << "[x] Do you want to store another object? (y/n) : ";
         cin >> input_answer;
 
-        if(!((input_answer == "y") || (input_answer == "Y"))) 
+        if(!((input_answer == "y") || (input_answer == "Y")))
         {
             running = false;
         }
@@ -41,4 +41,3 @@ int main()
     cout << "============================================================================================================================" << endl;
     return 0;
 }
-
