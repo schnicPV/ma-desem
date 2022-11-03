@@ -1,19 +1,45 @@
 #include <iostream>
-#include "button.h"
+#include "buttonmanager.h"
 
 using namespace std;
 
-Button::Button()
+
+// Factory pattern
+void ButtonManager::initialize()
 {
-	//...
+
+}
+void ButtonManager::initializeRelations(ToButton*)
+{
+
 }
 
-void Button::checkButtonState()
+// Singleton pattern
+ButtonManager& ButtonManager::instance()
 {
-	//...
+    static ButtonManager instance;
+    return instance;
 }
 
-void Button::testMe()
+// WhiteBox test pattern
+void ButtonManager::testMe()
 {
-	//...
+
+}
+
+// Singleton pattern
+ButtonManager::ButtonManager() {}
+ButtonManager::~ButtonManager() {}
+ButtonManager::ButtonManager(ButtonManager&) {}
+void ButtonManager::operator=(ButtonManager&) {}
+
+// SAP pattern
+void ButtonManager::pressed()
+{
+
+}
+
+void ButtonManager::released()
+{
+
 }

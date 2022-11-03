@@ -1,17 +1,33 @@
 #ifndef BUTTONMANAGER_H
 #define BUTTONMANAGER_H
 
-class ButtonManager
+#include "to_button.h"
+#include "to_buttonmanager.h"
+
+class ButtonManager : public ToButtonManager
 {
 public:
-	int state;
-	ButtonManager();
-	void checkButtonState();
-	void testMe();
-	
+    // Factory pattern
+    void initialize();
+    void initializeRelations(ToButton*);
+
+    // Singleton pattern
+    static ButtonManager& instance();
+
+    // WhiteBox test pattern
+    void testMe();
+
 private:
-	void pressed();
-	void released();
+    // Singleton pattern
+    ButtonManager();
+    ~ButtonManager();
+    ButtonManager(ButtonManager&);
+    void operator=(ButtonManager&);
+
+    // SAP pattern
+    void pressed();
+    void released();
+    ToButton* pButton;
 };
 
 #endif // BUTTONMANAGER_H

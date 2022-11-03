@@ -6,8 +6,12 @@ CONFIG -= qt
 SOURCES += \
         button.cpp \
         buttonmanager.cpp \
+        factory.cpp \
         main.cpp
 
 HEADERS += \
     button.h \
-    buttonmanager.h
+    buttonmanager.h \
+    factory.h \
+    to_button.h \
+    to_buttonmanager.h

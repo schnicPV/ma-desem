@@ -1,13 +1,28 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
-class Button
+#include "to_button.h"
+#include "to_buttonmanager.h"
+
+class Button : public ToButton
 {
 public:
-	int state;
-	Button();
-	void checkButtonState();
-	void testMe();
+    // Factory pattern
+    void initialize();
+    void initializeRelations();
+
+    // SAP pattern
+    void setButtonManager(ToButtonManager*);
+
+    // WhiteBox test pattern
+    void testMe();
+
+private:
+    // SAP pattern
+    BState checkButtonState();
+    ToButtonManager* pManager;
+
+    BState state;
 };
 
 #endif // BUTTON_H
