@@ -25,8 +25,8 @@ private:
     void operator=(ButtonManager&);
 
     // SAP pattern
-    void pressed();
-    void released();
+    virtual void pressed();
+    virtual void released();
     ToButton* pButton;
 };
 

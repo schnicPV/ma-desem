@@ -19,7 +19,7 @@ public:
 
 private:
     // SAP pattern
-    BState checkButtonState();
+    virtual BState checkButtonState();
     ToButtonManager* pManager;
 
     BState state;

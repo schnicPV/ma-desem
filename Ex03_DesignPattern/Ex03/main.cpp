@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#include "button.h"
-#include "buttonmanager.h"
+#include "factory.h"
 
 int main()
 {

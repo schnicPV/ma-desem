@@ -1,16 +1,12 @@
 #ifndef TO_BUTTON_H
 #define TO_BUTTON_H
 
-enum BState
-{
-    PRESSED, RELEASED
-};
+#include "bstate.h"
 
 class ToButton
 {
 public:
-    ToButton();
-    void checkButtonState();
+    virtual BState checkButtonState() = 0;
 };
 
 #endif // TO_BUTTON_H

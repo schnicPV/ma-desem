@@ -10,6 +10,7 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    bstate.h \
     button.h \
     buttonmanager.h \
     factory.h \
