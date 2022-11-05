@@ -7,12 +7,14 @@
 class Button : public ToButton
 {
 public:
+    Button();
+
     // Factory pattern
     void initialize();
     void initializeRelations();
 
     // SAP pattern
-    void setButtonManager(ToButtonManager*);
+    void setButtonManager(ToButtonManager* p);
 
     // WhiteBox test pattern
     void testMe();

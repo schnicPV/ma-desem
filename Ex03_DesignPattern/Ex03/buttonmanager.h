@@ -9,7 +9,7 @@ class ButtonManager : public ToButtonManager
 public:
     // Factory pattern
     void initialize();
-    void initializeRelations(ToButton*);
+    void initializeRelations(ToButton* p);
 
     // Singleton pattern
     static ButtonManager& instance();

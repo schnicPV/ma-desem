@@ -9,13 +9,16 @@ Factory::Factory()
 
 void Factory::initialize()
 {
-    pButton = new Button();
-    pManager = &ButtonManager::instance();
+    pButton = new Button();                     // create new Button
+    pManager = &ButtonManager::instance();      // define ButtonManager
+    pButton->initialize();
+    pManager->initialize();
 }
 
 void Factory::buildApplication()
 {
-
+    pManager->initializeRelations(pButton);
+    pButton->setButtonManager(pManager);
 }
 
 ButtonManager* Factory::buttonManager()

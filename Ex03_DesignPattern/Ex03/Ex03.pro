@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        bstate.cpp \
         button.cpp \
         buttonmanager.cpp \
         factory.cpp \
