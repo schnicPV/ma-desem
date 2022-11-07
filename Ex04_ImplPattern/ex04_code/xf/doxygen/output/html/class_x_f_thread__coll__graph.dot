@@ -1,0 +1,10 @@
+digraph "XFThread"
+{
+  edge [fontname="Helvetia.ttf",fontsize="10",labelfontname="Helvetia.ttf",labelfontsize="10"];
+  node [fontname="Helvetia.ttf",fontsize="10",shape=record];
+  Node1 [label="{XFThread\n|# _bExecuting\l|+ XFThread()\l+ ~XFThread()\l+ start()\l+ pushEvent()\l+ scheduleTimeout()\l+ unscheduleTimeout()\l# execute()\l# getTimeoutManager()\l# dispatchEvent()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" #_events" ,arrowhead="odiamond",fontname="Helvetia.ttf"];
+  Node2 [label="{XFEventQueue\n||+ XFEventQueue()\l+ ~XFEventQueue()\l+ empty()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_x_f_event_queue.html"];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetia.ttf"];
+  Node3 [label="{std::queue\< IXFEvent * \>\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

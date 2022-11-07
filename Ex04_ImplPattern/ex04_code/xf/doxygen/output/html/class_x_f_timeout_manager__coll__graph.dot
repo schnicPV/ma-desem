@@ -1,0 +1,7 @@
+digraph "XFTimeoutManager"
+{
+  edge [fontname="Helvetia.ttf",fontsize="10",labelfontname="Helvetia.ttf",labelfontsize="10"];
+  node [fontname="Helvetia.ttf",fontsize="10",shape=record];
+  Node1 [label="{XFTimeoutManager\n|# _tickInterval\l# _timeouts\l# _sysTicksInMs\l|+ ~XFTimeoutManager()\l+ setTickInterval()\l+ start()\l+ scheduleTimeout()\l+ unscheduleTimeout()\l+ tick()\l+ tickInterval()\l+ sysTicksInMs()\l+ getInstance()\l# XFTimeoutManager()\l# addTimeout()\l# removeTimeouts()\l# returnTimeout()\l# startHardwareTimer()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node1 [color="grey25",fontsize="10",style="solid",label=" #_pInstance" ,arrowhead="odiamond",fontname="Helvetia.ttf"];
+}

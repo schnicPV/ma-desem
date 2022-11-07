@@ -1,0 +1,9 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetia.ttf",fontsize="10",labelfontname="Helvetia.ttf",labelfontsize="10"];
+  node [fontname="Helvetia.ttf",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="IXFReactive",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_i_x_f_reactive.html"];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetia.ttf"];
+  Node1 [label="XFReactive",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_x_f_reactive.html"];
+}

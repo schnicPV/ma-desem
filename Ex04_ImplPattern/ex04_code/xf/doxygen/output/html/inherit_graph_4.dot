@@ -1,0 +1,7 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetia.ttf",fontsize="10",labelfontname="Helvetia.ttf",labelfontsize="10"];
+  node [fontname="Helvetia.ttf",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="XF",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_x_f.html"];
+}

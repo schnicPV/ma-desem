@@ -1,0 +1,8 @@
+digraph "XFReactive"
+{
+  edge [fontname="Helvetia.ttf",fontsize="10",labelfontname="Helvetia.ttf",labelfontsize="10"];
+  node [fontname="Helvetia.ttf",fontsize="10",shape=record];
+  Node0 [label="{XFReactive\n|# _pThread\l# _pCurrentEvent\l|+ XFReactive()\l+ ~XFReactive()\l+ startBehavior()\l+ pushEvent()\l# process()\l# processEvent()\l# getThread()\l# setCurrentEvent()\l# getCurrentEvent()\l# getCurrentTimeout()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetia.ttf"];
+  Node1 [label="{IXFReactive\n||+ IXFReactive()\l+ ~IXFReactive()\l+ startBehavior()\l+ pushEvent()\l+ process()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_i_x_f_reactive.html"];
+}

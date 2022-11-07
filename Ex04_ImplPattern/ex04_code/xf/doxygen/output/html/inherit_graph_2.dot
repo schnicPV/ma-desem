@@ -1,0 +1,7 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetia.ttf",fontsize="10",labelfontname="Helvetia.ttf",labelfontsize="10"];
+  node [fontname="Helvetia.ttf",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="IXFEvent::_tEventStatus",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_i_x_f_event_1_1__t_event_status.html"];
+}
