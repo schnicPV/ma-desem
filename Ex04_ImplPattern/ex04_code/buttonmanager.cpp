@@ -73,22 +73,41 @@ EventStatus ButtonManager::processEvent()
             }
             break;
         case STATE_WAIT:
-
             //put your code here
+            if((ev->getEventType() == IXFEvent::Event) && (ev->getId() == evPressed))
+            {
+                rootState = STATE_PRESSED;
+            }
 
             break;
         case STATE_PRESSED:
             // if the timeout wins
             //put your code here
+            if((ev->getEventType() == IXFEvent::Timeout) && (ev->getId() == tmLongPressed))
+            {
+                rootState = STATE_LONG;
+            }
 
             // if the released event wins
             //put your code here
+            if((ev->getEventType() == IXFEvent::Event) && (ev->getId() == evReleased))
+            {
+                rootState = STATE_CLICK;
+            }
             break;
         case STATE_CLICK:
             //put your code here
+            if(ev->getEventType() == IXFEvent::NullTransition)
+            {
+                rootState = STATE_WAIT;
+            }
             break;
         case STATE_LONG:
            //put your code here
+            if(ev->getEventType() == IXFEvent::NullTransition)
+            {
+                rootState = STATE_WAIT;
+            }
             break;
     }
 
@@ -114,6 +133,8 @@ EventStatus ButtonManager::processEvent()
                 /* we must stop the long pressed timeout
                 */
                 //put the stop timeoutcode here
+                getThread()->unscheduleTimeout(tmLongPressed, this);
+
                 // generate a default transition to get out of here
                 GEN(XFNullTransition());
                 break;
@@ -121,6 +142,7 @@ EventStatus ButtonManager::processEvent()
                 cout <<"-- button manager sees a long button press -- " <<endl;
                 // generate a default transition to get out of here
                 //put the generate NULLTRANSITION code here
+                GEN(XFNullTransition());
                 break;
         }
     }

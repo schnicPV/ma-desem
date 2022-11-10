@@ -1,0 +1,14 @@
+release/initialevent.o
+release/xf.o
+release/xfevent.o
+release/xfnulltransition.o
+release/xfreactive.o
+release/xfthread.o
+release/xftimeout.o
+release/xftimeoutmanager.o
+release/main.o
+release/blinker.o
+release/button.o
+release/buttonmanager.o
+release/factory.o
+release/testbench.o

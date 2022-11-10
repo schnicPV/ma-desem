@@ -1,0 +1,14 @@
+debug/initialevent.o
+debug/xf.o
+debug/xfevent.o
+debug/xfnulltransition.o
+debug/xfreactive.o
+debug/xfthread.o
+debug/xftimeout.o
+debug/xftimeoutmanager.o
+debug/main.o
+debug/blinker.o
+debug/button.o
+debug/buttonmanager.o
+debug/factory.o
+debug/testbench.o
