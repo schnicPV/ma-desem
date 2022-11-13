@@ -98,8 +98,8 @@ bg=white</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>252</x>
-      <y>36</y>
+      <x>144</x>
+      <y>18</y>
       <w>180</w>
       <h>180</h>
     </coordinates>

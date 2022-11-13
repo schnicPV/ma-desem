@@ -73,7 +73,7 @@ EventStatus ButtonManager::processEvent()
             }
             break;
         case STATE_WAIT:
-            //put your code here
+            // wait for press
             if((ev->getEventType() == IXFEvent::Event) && (ev->getId() == evPressed))
             {
                 rootState = STATE_PRESSED;
@@ -81,29 +81,26 @@ EventStatus ButtonManager::processEvent()
 
             break;
         case STATE_PRESSED:
-            // if the timeout wins
-            //put your code here
+            // if the timeout wins => long press
             if((ev->getEventType() == IXFEvent::Timeout) && (ev->getId() == tmLongPressed))
             {
                 rootState = STATE_LONG;
             }
-
-            // if the released event wins
-            //put your code here
+            // if the released event wins => short press
             if((ev->getEventType() == IXFEvent::Event) && (ev->getId() == evReleased))
             {
                 rootState = STATE_CLICK;
             }
             break;
         case STATE_CLICK:
-            //put your code here
+            // after click go into wait
             if(ev->getEventType() == IXFEvent::NullTransition)
             {
                 rootState = STATE_WAIT;
             }
             break;
         case STATE_LONG:
-           //put your code here
+           // after long press go into wait
             if(ev->getEventType() == IXFEvent::NullTransition)
             {
                 rootState = STATE_WAIT;
@@ -124,25 +121,16 @@ EventStatus ButtonManager::processEvent()
                 break;
             case STATE_PRESSED:
                 cout <<"-- button manager sees a button pressed -- " <<endl;
-                /* start the long pressed timeout
-                 */
-                getThread()->scheduleTimeout(tmLongPressed, longPressTimeout, this);
+                getThread()->scheduleTimeout(tmLongPressed, longPressTimeout, this);    // start the long pressed timeout
                 break;
             case STATE_CLICK:
                 cout <<"-- button manager sees a button clicked -- " <<endl;
-                /* we must stop the long pressed timeout
-                */
-                //put the stop timeoutcode here
-                getThread()->unscheduleTimeout(tmLongPressed, this);
-
-                // generate a default transition to get out of here
-                GEN(XFNullTransition());
+                getThread()->unscheduleTimeout(tmLongPressed, this);                    // stop the long pressed timeout
+                GEN(XFNullTransition());                                                // generate a default transition to get out of here (without condition)
                 break;
             case STATE_LONG:
                 cout <<"-- button manager sees a long button press -- " <<endl;
-                // generate a default transition to get out of here
-                //put the generate NULLTRANSITION code here
-                GEN(XFNullTransition());
+                GEN(XFNullTransition());                                                // generate a default transition to get out of here (without condition)
                 break;
         }
     }
