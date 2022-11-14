@@ -1,0 +1,9 @@
+C:/Users/nicis/HESSO/MSc_ElE/MA_DeSEm/ma-desem/Ex05_HAL/hal-project/common/platform/nucleo-stm32l476rg/mcu/hal/uart.h:35:23:static Uart& Uart::uart(unsigned char)	16	static
+../common/platform/nucleo-stm32l476rg/board/trace.cpp:33:44:void __tcf_0()	8	static
+../common/platform/nucleo-stm32l476rg/board/trace.cpp:23:6:static void Trace::initialize()	8	static
+../common/platform/nucleo-stm32l476rg/board/trace.cpp:50:6:static void Trace::_print(char*, bool)	24	static
+../common/platform/nucleo-stm32l476rg/board/trace.cpp:80:6:)	16	static
+../common/platform/nucleo-stm32l476rg/board/trace.cpp:93:6:)	28	static
+../common/platform/nucleo-stm32l476rg/board/trace.cpp:106:6:)	24	static
+../common/platform/nucleo-stm32l476rg/board/trace.cpp:118:17:)	16	static
+../common/platform/nucleo-stm32l476rg/board/trace.cpp:130:17:)	16	static

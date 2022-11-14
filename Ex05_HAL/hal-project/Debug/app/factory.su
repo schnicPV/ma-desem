@@ -1,0 +1,8 @@
+../app/factory.cpp:9:6:void Factory::buildApplication()	24	static
+../app/factory.cpp:45:11:static Factory& Factory::instance()	8	static
+../app/factory.cpp:54:23:void __tcf_0()	8	static
+../app/factory.cpp:52:17:static ButtonManager& Factory::buttonManager()	8	static
+../app/factory.cpp:62:16:void __tcf_1()	8	static
+../app/factory.cpp:60:10:static Button& Factory::button()	8	static
+../app/factory.cpp:68:7:static Led& Factory::led()	4	static
+../app/factory.cpp:85:6:void Factory_buildApplication()	8	static
