@@ -1,10 +1,12 @@
 #include "mcu/mcu.h"
+#include "trace/trace.h"
 #include "main.h"
 #include "button.h"
 
 Button::Button()
  : pManager(nullptr),
-   state(RELEASED)
+   state(RELEASED),
+   rootState(STATE_INITIAL)
 {
 }
 
@@ -20,6 +22,9 @@ void Button::initialize()
 	// Read actual button state (GPIO state)
 	// (It may be pressed already at start up!)
 	state = checkButtonState();
+
+	// state machine state
+	rootState = STATE_INITIAL;
 }
 
 void Button::initializeHardware()
@@ -41,6 +46,8 @@ void Button::initializeRelations(ToButtonManager * p)
 {
 	setButtonManager(p);
 }
+
+int Button::pollInterval = 20;	// [ms]
 
 void Button::setButtonManager(ToButtonManager * p)
 {
@@ -77,7 +84,7 @@ bool Button::readGpio()
 	case GPIO_PIN_SET:
 		return true;
 	default:
-		printf("[ERROR] undefined GPIO Pin read!");
+		Trace::outln("[ERROR] undefined GPIO Pin read!");
 		return false;
 	}
 }
@@ -88,5 +95,81 @@ EventStatus Button::processEvent()
     EventStatus result = EventStatus::Unknown;
 
     // TODO: Implement state-machine here.
+    // get the actual event
+	const IXFEvent* ev = this->getCurrentEvent();
+
+	// save the current state
+	smState lastState = rootState;
+
+	// the transition switch
+	switch (rootState)
+	{
+		case STATE_INITIAL:
+			if (ev->getEventType() == IXFEvent::Initial)
+			{
+				rootState = STATE_WAIT;
+			}
+			break;
+		case STATE_WAIT:
+			if (ev->getEventType() == IXFEvent::Timeout &&
+				ev->getId() == tmPollButton)
+			{
+				rootState = STATE_GET_BSTATE;
+			}
+			break;
+		case STATE_GET_BSTATE:
+			// if the timeout wins
+			if (ev->getEventType() == IXFEvent::NullTransition)
+			{
+				rootState = STATE_SEND_MANAGER;
+			}
+			break;
+		case STATE_SEND_MANAGER:
+			if (ev->getEventType() == IXFEvent::NullTransition)
+			{
+				rootState = STATE_WAIT;
+			}
+			break;
+	}
+
+	// the action switch
+	if (lastState != rootState)
+	{
+		result = EventStatus::Consumed;
+		switch (rootState)
+		{
+			case STATE_INITIAL:
+				break;
+			case STATE_WAIT:
+				Trace::outln("-- button start poll timeout -- ");
+				getThread()->scheduleTimeout(tmPollButton, pollInterval, this);
+				break;
+			case STATE_GET_BSTATE:
+				Trace::outln("-- button get button state -- ");
+				state = checkButtonState();								// check the button state adn store it into 'state'
+				getThread()->unscheduleTimeout(tmPollButton, this);		// stop the poll timeout
+				GEN(XFNullTransition()); 								// generate a default transition to get out of here
+				break;
+			case STATE_SEND_MANAGER:
+				Trace::outln("-- button send state to manager -- ");
+				// send states to button manager
+				if(state == PRESSED)
+				{
+					pManager->pressed();
+				}
+				if(state == RELEASED)
+				{
+					pManager->released();
+				}
+				// generate a default transition to get out of here
+				GEN(XFNullTransition());
+				break;
+		}
+	}
+	else
+	{
+		result = EventStatus::NotConsumed;
+	}
+
     return result;
 }

@@ -35,6 +35,14 @@ private:
 private:
     ToButtonManager* pManager;			///< Pointer to button observer.
     BState state;						///< Holds the previous read button state.
+
+    /*state machine variables*/
+    //enum evID {evPressed, evReleased};   		   // These are the event ids
+	enum tmID {tmPollButton};              // This is the timeout id
+	enum smState {STATE_INITIAL, STATE_WAIT, STATE_GET_BSTATE, STATE_SEND_MANAGER}; // These are the state ids
+	static int pollInterval;		// pol interval in [ms]
+
+	smState rootState;
 };
 
 #endif // BUTTON_H
