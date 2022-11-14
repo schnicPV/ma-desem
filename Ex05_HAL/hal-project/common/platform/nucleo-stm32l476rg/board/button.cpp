@@ -55,13 +55,31 @@ void Button::start()
 BState Button::checkButtonState()
 {
 	// TODO: Implement method accordingly.
-	return RELEASED;
+	bool state_released = readGpio();
+	if(state_released)
+	{
+		return RELEASED;
+	}
+	else
+	{
+		return PRESSED;
+	}
 }
 
 bool Button::readGpio()
 {
     // TODO: Call HAL_GPIO_ReadPin(...) function to get actual GPIO level of the button.
-	return false;
+	GPIO_PinState current_state = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
+	switch(current_state)
+	{
+	case GPIO_PIN_RESET:
+		return false;
+	case GPIO_PIN_SET:
+		return true;
+	default:
+		printf("[ERROR] undefined GPIO Pin read!");
+		return false;
+	}
 }
 
 EventStatus Button::processEvent()
