@@ -26,5 +26,5 @@ void Led::turnOn()
 void Led::turnOff()
 {
     // TODO: Same procedure as mentioned above to turn of the LED.
-	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin ,GPIO_PIN_SET);
+	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin ,GPIO_PIN_RESET);
 }

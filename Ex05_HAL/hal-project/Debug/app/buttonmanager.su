@@ -1,19 +1,19 @@
 C:/Users/nicis/HESSO/MSc_ElE/MA_DeSEm/ma-desem/Ex05_HAL/hal-project/common/xf/ixfevent.h:48:23:IXFEvent::eEventType IXFEvent::getEventType() const	16	static
 C:/Users/nicis/HESSO/MSc_ElE/MA_DeSEm/ma-desem/Ex05_HAL/hal-project/common/xf/ixfevent.h:61:16:int IXFEvent::getId() const	16	static
 C:/Users/nicis/HESSO/MSc_ElE/MA_DeSEm/ma-desem/Ex05_HAL/hal-project/common/xf/xfeventstatus.h:32:5:EventStatus::EventStatus(EventStatus::eEventStatus)	16	static
-../app/buttonmanager.cpp:7:6:void ButtonManager::initialize()	16	static
-../app/buttonmanager.cpp:12:6:void ButtonManager::initializeRelations(ToButton*, Led*)	24	static
-../app/buttonmanager.cpp:21:26:void __tcf_0()	8	static
-../app/buttonmanager.cpp:19:17:static ButtonManager& ButtonManager::instance()	8	static
+../app/buttonmanager.cpp:8:6:void ButtonManager::initialize()	16	static
+../app/buttonmanager.cpp:13:6:void ButtonManager::initializeRelations(ToButton*, Led*)	24	static
+../app/buttonmanager.cpp:25:26:void __tcf_0()	8	static
+../app/buttonmanager.cpp:23:17:static ButtonManager& ButtonManager::instance()	8	static
 C:/Users/nicis/HESSO/MSc_ElE/MA_DeSEm/ma-desem/Ex05_HAL/hal-project/common/platform/nucleo-stm32l476rg/board/button-interface.h:20:7:constexpr ToButtonManager::ToButtonManager()	16	static
 C:/Users/nicis/HESSO/MSc_ElE/MA_DeSEm/ma-desem/Ex05_HAL/hal-project/common/platform/nucleo-stm32l476rg/board/button-interface.h:27:10:ToButtonManager::~ToButtonManager()	16	static
 C:/Users/nicis/HESSO/MSc_ElE/MA_DeSEm/ma-desem/Ex05_HAL/hal-project/common/platform/nucleo-stm32l476rg/board/button-interface.h:27:10:virtual ToButtonManager::~ToButtonManager()	16	static
-../app/buttonmanager.cpp:25:1:ButtonManager::ButtonManager()	16	static
-../app/buttonmanager.cpp:30:1:ButtonManager::ButtonManager(ButtonManager&)	16	static
-../app/buttonmanager.cpp:36:6:void ButtonManager::operator=(ButtonManager&)	16	static
-../app/buttonmanager.cpp:39:1:ButtonManager::~ButtonManager()	16	static
-../app/buttonmanager.cpp:39:1:virtual ButtonManager::~ButtonManager()	16	static
-../app/buttonmanager.cpp:42:6:virtual void ButtonManager::pressed()	32	static
-../app/buttonmanager.cpp:51:6:virtual void ButtonManager::released()	32	static
-../app/buttonmanager.cpp:60:13:virtual EventStatus ButtonManager::processEvent()	48	static
-../app/buttonmanager.cpp:153:6:void ButtonManager::start()	16	static
+../app/buttonmanager.cpp:29:1:ButtonManager::ButtonManager()	16	static
+../app/buttonmanager.cpp:34:1:ButtonManager::ButtonManager(ButtonManager&)	16	static
+../app/buttonmanager.cpp:40:6:void ButtonManager::operator=(ButtonManager&)	16	static
+../app/buttonmanager.cpp:43:1:ButtonManager::~ButtonManager()	16	static
+../app/buttonmanager.cpp:43:1:virtual ButtonManager::~ButtonManager()	16	static
+../app/buttonmanager.cpp:46:6:virtual void ButtonManager::pressed()	32	static
+../app/buttonmanager.cpp:55:6:virtual void ButtonManager::released()	32	static
+../app/buttonmanager.cpp:64:13:virtual EventStatus ButtonManager::processEvent()	32	static
+../app/buttonmanager.cpp:158:6:void ButtonManager::start()	16	static

@@ -2,6 +2,7 @@
 #include "xf/xfevent.h"
 #include "buttonmanager.h"
 
+
 using namespace std;
 
 void ButtonManager::initialize()
@@ -12,9 +13,12 @@ void ButtonManager::initialize()
 void ButtonManager::initializeRelations(ToButton * p, Led * l)
 {
     pButton = p;
+    pLed = l;
 }
 
 int ButtonManager::longPressTimeout = 1000;
+int ButtonManager::led_time_long = 2000;
+int ButtonManager::led_time_click = 500;
 
 ButtonManager & ButtonManager::instance()
 {
@@ -98,13 +102,15 @@ EventStatus ButtonManager::processEvent()
             }
             break;
         case STATE_CLICK:
-            if (ev->getEventType() == IXFEvent::NullTransition)
+            if (ev->getEventType() == IXFEvent::Timeout &&
+            		ev->getId() == tmLed)
             {
                 rootState = STATE_WAIT;
             }
             break;
         case STATE_LONG:
-            if (ev->getEventType() == IXFEvent::NullTransition)
+        	if (ev->getEventType() == IXFEvent::Timeout &&
+        			ev->getId() == tmLed)
             {
                 rootState = STATE_WAIT;
             }
@@ -121,6 +127,7 @@ EventStatus ButtonManager::processEvent()
             break;
             case STATE_WAIT:
             	Trace::outln("-- button manager waiting -- ");
+            	pLed->turnOff();									// turn always LED off while waiting
                 break;
             case STATE_PRESSED:
             	Trace::outln("-- button manager sees a button pressed -- ");
@@ -130,16 +137,14 @@ EventStatus ButtonManager::processEvent()
                 break;
             case STATE_CLICK:
             	Trace::outln("-- button manager sees a button clicked -- ");
-                /* we must stop the long pressed timeout
-                */
-                getThread()->unscheduleTimeout(tmLongPressed, this);
-                // generate a default transition to get out of here
-                GEN(XFNullTransition());
+                getThread()->unscheduleTimeout(tmLongPressed, this);		// stop long pressed timeout
+                getThread()->scheduleTimeout(tmLed, led_time_click, this);	// start led timeout
+                pLed->turnOn();												// turn on LED
                 break;
             case STATE_LONG:
             	Trace::outln("-- button manager sees a long button press -- ");
-                // generate a default transition to get out of here
-                GEN(XFNullTransition());
+            	getThread()->scheduleTimeout(tmLed, led_time_long, this);	// start led timeout
+            	pLed->turnOn();												// turn on LED
                 break;
         }
     }

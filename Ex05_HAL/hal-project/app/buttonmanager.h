@@ -42,11 +42,16 @@ private:
     enum smState {STATE_INITIAL, STATE_WAIT, STATE_PRESSED,
                   STATE_CLICK, STATE_LONG}; // These are the state ids
     static int longPressTimeout;
+    static int led_time_long; 	// time to light the LED after long press in [ms]
+    static int led_time_click; 	// time to light the LED after short press in [ms]
 
     smState rootState;
 
 private:
     /* SAP pattern */
     ToButton * pButton;
+
+    /* LED object*/
+    Led * pLed;
 };
 #endif // BUTTONMANAGER_H
