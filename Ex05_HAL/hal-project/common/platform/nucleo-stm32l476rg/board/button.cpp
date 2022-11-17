@@ -146,7 +146,7 @@ EventStatus Button::processEvent()
 				break;
 			case STATE_GET_BSTATE:
 				Trace::outln("-- button get button state -- ");
-				state = checkButtonState();								// check the button state adn store it into 'state'
+				state = checkButtonState();								// check the button state and store it into 'state'
 				getThread()->unscheduleTimeout(tmPollButton, this);		// stop the poll timeout
 				GEN(XFNullTransition()); 								// generate a default transition to get out of here
 				break;

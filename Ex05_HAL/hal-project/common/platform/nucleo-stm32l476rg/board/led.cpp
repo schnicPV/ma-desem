@@ -20,9 +20,11 @@ void Led::initialize()
 void Led::turnOn()
 {
 	// TODO: Call HAL_GPIO_WritePin(...) function to set GPIO pin connected to the LED.
+	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin ,GPIO_PIN_SET);
 }
 
 void Led::turnOff()
 {
     // TODO: Same procedure as mentioned above to turn of the LED.
+	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin ,GPIO_PIN_SET);
 }
