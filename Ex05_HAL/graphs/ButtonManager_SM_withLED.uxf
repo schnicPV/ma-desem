@@ -186,9 +186,7 @@ bg=white</panel_attributes>
       <w>189</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>[IXFEvent == evReleased]
-
-/ unscheduleTimeout()</panel_attributes>
+    <panel_attributes>[IXFEvent == evReleased]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
