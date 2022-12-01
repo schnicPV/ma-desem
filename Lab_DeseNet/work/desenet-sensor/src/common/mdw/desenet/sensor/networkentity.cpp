@@ -77,6 +77,19 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
     Frame frame = Frame::useBuffer(buffer, length);
 
     // TODO: Add your code here
+    if(frame.type() == FrameType::Beacon)
+    {
+        // start timer for time slots
+        _pTimeSlotManager->onBeaconReceived(receptionTime);
+    }
+    else if(frame.type() == FrameType::MPDU)
+    {
+        // do something
+    }
+    else
+    {
+        return;     // invalid frame received
+    }
 }
 
 board::LedController & NetworkEntity::ledController() const
