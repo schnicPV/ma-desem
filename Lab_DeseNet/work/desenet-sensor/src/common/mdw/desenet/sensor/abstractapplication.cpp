@@ -13,8 +13,11 @@ using desenet::sensor::AbstractApplication;
 void AbstractApplication::svSyncRequest()
 {
     // TODO: Register application using the network entity
+    NetworkEntity::instance().svSyncRequest(this);
+/***Net::instance().entity().svSyncRequest(this);****/   // possible as well !
 }
 
+// limited with 16 sample slots => add new inscription to list only when this method reutrns true!
 bool AbstractApplication::svPublishRequest(SvGroup group)
 {
     // TODO: Register application for the provided group using the network entity
@@ -31,6 +34,7 @@ void AbstractApplication::evPublishRequest(EvId id, const SharedByteBuffer & evD
  */
 void AbstractApplication::svSyncIndication(desenet::NetworkTime)
 {
+    // due to polymorphism never landing here! --> it is desired to call svSyncIndication() of Accelerometer or Joystick!
 }
 
 /**

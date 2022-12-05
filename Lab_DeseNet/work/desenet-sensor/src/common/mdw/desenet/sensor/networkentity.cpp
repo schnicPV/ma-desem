@@ -79,8 +79,22 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
     // TODO: Add your code here
     if(frame.type() == FrameType::Beacon)
     {
+        // create new beacon
+        Beacon* pBcon = new Beacon(frame);
+
         // start timer for time slots
-        _pTimeSlotManager->onBeaconReceived(receptionTime);
+//        _pTimeSlotManager->onBeaconReceived(pBcon->slotDuration());
+
+        // notify all applications
+        int dummy_cnt = 0;
+        for(auto list_elm = appSyncList.begin(); list_elm != appSyncList.end(); list_elm++)     // parse a list acc. to example on cplusplus.com
+        {
+            (*list_elm)->svSyncIndication(receptionTime);
+            dummy_cnt++;
+        }
+
+        //destroy beacon at the end ?
+        delete(pBcon);
     }
     else if(frame.type() == FrameType::MPDU)
     {
@@ -90,9 +104,16 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
     {
         return;     // invalid frame received
     }
+//    ledController().flashLed(0);    // this flashes the LED on the simulated board
 }
 
 board::LedController & NetworkEntity::ledController() const
 {
     return board::LedController::instance();
+}
+
+// add new 'AbstractApplication' pointer to the (synchronisation) list
+void NetworkEntity::svSyncRequest(AbstractApplication* pAbsApp)
+{
+    appSyncList.push_back(pAbsApp);
 }

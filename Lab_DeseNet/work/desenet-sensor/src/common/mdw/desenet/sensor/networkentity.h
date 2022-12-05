@@ -76,6 +76,10 @@ protected:
     static NetworkEntity * _pInstance;				///< Pointer to single instance.
     ITimeSlotManager * _pTimeSlotManager;			///< Pointer to TimeSlotManager.
     NetworkInterfaceDriver * _pTransceiver;			///< Pointer to transceiver.
+
+private:
+    void svSyncRequest(AbstractApplication* pAbsApp);   // Method which stores a new 'AbstractApplication' pointer in the 'appSyncList' (called in 'AbstractApplication' after sync. request)
+    ApplicationSyncList appSyncList;                    // list which contains all subscribed 'AbstractApplication's
 };
 
 } // sensor
