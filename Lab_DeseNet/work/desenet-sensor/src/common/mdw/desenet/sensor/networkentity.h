@@ -8,6 +8,7 @@
 #include "desenet/desenet.h"
 #include "desenet/networkinterfacedriver.h"
 #include "desenet/itimeslotmanager.h"
+#include "desenet/multipdu.h"
 
 // Forward declaration of class(es) in namespace board
 namespace board {
@@ -78,8 +79,13 @@ protected:
     NetworkInterfaceDriver * _pTransceiver;			///< Pointer to transceiver.
 
 private:
-    void svSyncRequest(AbstractApplication* pAbsApp);   // Method which stores a new 'AbstractApplication' pointer in the 'appSyncList' (called in 'AbstractApplication' after sync. request)
-    ApplicationSyncList appSyncList;                    // list which contains all subscribed 'AbstractApplication's
+    void svSyncRequest(AbstractApplication* pAbsApp);                       // Method which stores a new 'AbstractApplication' pointer in the 'appSyncList' (called in 'AbstractApplication' after sync. request)
+    bool svPublishRequest(AbstractApplication* pAbsApp, SvGroup group);     // Method which stores a new 'AbstractApplication' pointer and the corresponding Group Nbr in the 'appPubArray' (called in 'AbstractApplication' after sync. request)
+    ApplicationSyncList appSyncList;                                        // List which contains all subscribed and synchronized 'AbstractApplication's
+    ApplicationPublishersArray appPubArray;                                 // Array which contains all subscribed 'AbstractApplication's which are ready to to publish data (created by the MultiPDU class)
+
+public:
+    MultiPDU mPDU;                                      // the object to the multi PDU => eventually apply singleton pattern !
 };
 
 } // sensor

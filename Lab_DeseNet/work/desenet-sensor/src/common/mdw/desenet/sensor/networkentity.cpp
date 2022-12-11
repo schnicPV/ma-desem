@@ -46,6 +46,7 @@ void NetworkEntity::initializeRelations(ITimeSlotManager & timeSlotManager, Netw
     _pTransceiver = &transceiver;
 
     // TODO: Add additional initialization code here
+    mPDU = MultiPDU();
 
      // Set the receive callback between transceiver and network. Bind this pointer to member function
     transceiver.setReceptionHandler(std::bind(&NetworkEntity::onReceive, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
@@ -116,4 +117,18 @@ board::LedController & NetworkEntity::ledController() const
 void NetworkEntity::svSyncRequest(AbstractApplication* pAbsApp)
 {
     appSyncList.push_back(pAbsApp);
+}
+
+// add new 'AbstractApplication' pointer to the publisher list, only if the SV Group is free
+bool NetworkEntity::svPublishRequest(AbstractApplication* pAbsApp, SvGroup group)
+{
+    if(appPubArray[group] == nullptr)
+    {
+        appPubArray[group] = pAbsApp;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
