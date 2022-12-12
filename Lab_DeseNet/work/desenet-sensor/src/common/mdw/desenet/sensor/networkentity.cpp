@@ -94,6 +94,12 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
             dummy_cnt++;
         }
 
+        // publish request for all applications
+        for(uint8_t idx = 0; idx < MAX_GROUP_NBR; idx++)
+        {
+            appPubArray[idx]->svPublishIndication(idx, /*DATA*/);
+        }
+
         //destroy beacon at the end ?
         delete(pBcon);
     }
@@ -122,7 +128,7 @@ void NetworkEntity::svSyncRequest(AbstractApplication* pAbsApp)
 // add new 'AbstractApplication' pointer to the publisher list, only if the SV Group is free
 bool NetworkEntity::svPublishRequest(AbstractApplication* pAbsApp, SvGroup group)
 {
-    if(appPubArray[group] == nullptr)
+    if((group < MAX_GROUP_NBR) && (appPubArray[group] == nullptr))
     {
         appPubArray[group] = pAbsApp;
         return true;

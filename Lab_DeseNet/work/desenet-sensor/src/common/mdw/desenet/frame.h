@@ -3,7 +3,7 @@
 
 #include <memory>
 #include "platform-config.h"
-#include "types.h"
+//#include "types.h"            // uncomment due to error message of QT creator => maybe not necessary!
 
 namespace board {
 	class NrfTransceiver;

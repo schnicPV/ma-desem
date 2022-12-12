@@ -69,8 +69,9 @@ protected:
     board::LedController & ledController() const;																///< Internal access to	LedController
 
 protected:
+    static const uint8_t MAX_GROUP_NBR = 16;
     typedef std::list<AbstractApplication *> ApplicationSyncList;
-    typedef std::array<AbstractApplication *, 16> ApplicationPublishersArray;
+    typedef std::array<AbstractApplication *, MAX_GROUP_NBR> ApplicationPublishersArray;
     typedef std::list<EventElement> EventElementList;
 
 protected:
