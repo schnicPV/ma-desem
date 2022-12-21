@@ -22,6 +22,9 @@ using std::vector;
 
 using desenet::sensor::NetworkEntity;
 
+#define SV_EPDU_TYPE 0
+#define EV_EPDU_TYPE 1
+
 NetworkEntity * NetworkEntity::_pInstance(nullptr);		// Instantiation of static attribute
 
 NetworkEntity::NetworkEntity()
@@ -95,10 +98,25 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
         }
 
         // publish request for all applications
-        for(uint8_t idx = 0; idx < MAX_GROUP_NBR; idx++)
+        mPDU.clear();
+        size_t writtenByteLength = 0;
+        for(SvGroup idx = 0; idx < MAX_GROUP_NBR; idx++)
         {
-            appPubArray[idx]->svPublishIndication(idx, /*DATA*/);
+            if(appPubArray[idx] != nullptr)
+            {
+                SharedByteBuffer buffer = SharedByteBuffer::proxy(mPDU.getValidStart(), mPDU.getRemainingLength());
+                writtenByteLength = appPubArray[idx]->svPublishIndication(idx, buffer);
+                if(writtenByteLength > 0)
+                {
+                    mPDU.addEPDUheader(SV_EPDU_TYPE, idx, writtenByteLength, mPDU.currentDataByteIdx);      // here the currentDataByteIndex should be 2 because of clear() above
+                    mPDU.currentDataByteIdx = mPDU.currentDataByteIdx + writtenByteLength + 1;              // + 1 because the data is set 1 after ePDU header (see line above)
+                    mPDU.ePDUcnt++;
+                    mPDU.updateEPDUcnt();
+                    mPDU.updateHeaderLength(mPDU.currentDataByteIdx);
+                }
+            }
         }
+        (*_pTransceiver) << mPDU;   // send MPDU to transceiver
 
         //destroy beacon at the end ?
         delete(pBcon);

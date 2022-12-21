@@ -1,5 +1,6 @@
 release/accelerometerapplication.o
 release/factory.o
+release/multipdu.o
 release/beacon.o
 release/frame.o
 release/networkinterfacedriver.o

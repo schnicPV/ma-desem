@@ -31,6 +31,7 @@ class NetworkEntity
 {
     friend class AbstractApplication;
     friend class Net;
+//    friend MultiPDU;      // added friend MultiPDU
 
 public:
     NetworkEntity();
@@ -86,7 +87,7 @@ private:
     ApplicationPublishersArray appPubArray;                                 // Array which contains all subscribed 'AbstractApplication's which are ready to to publish data (created by the MultiPDU class)
 
 public:
-    MultiPDU mPDU;                                      // the object to the multi PDU => eventually apply singleton pattern !
+    MultiPDU mPDU;// = MultiPDU();                                      // the object to the multi PDU
 };
 
 } // sensor
