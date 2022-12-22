@@ -50,6 +50,7 @@ void NetworkEntity::initializeRelations(ITimeSlotManager & timeSlotManager, Netw
 
     // TODO: Add additional initialization code here
     mPDU = MultiPDU();
+    timeSlotManager.initializeRelations(*this);     // initialize the TimeSlotMAnager class so that there inside the _pObserver is initialized with (*this), because NetworkEntity IS ans observer
 
      // Set the receive callback between transceiver and network. Bind this pointer to member function
     transceiver.setReceptionHandler(std::bind(&NetworkEntity::onReceive, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
@@ -87,7 +88,7 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
         Beacon* pBcon = new Beacon(frame);
 
         // start timer for time slots
-//        _pTimeSlotManager->onBeaconReceived(pBcon->slotDuration());
+        _pTimeSlotManager->onBeaconReceived(pBcon->slotDuration());
 
         // notify all applications
         int dummy_cnt = 0;
@@ -116,10 +117,10 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
                 }
             }
         }
-        (*_pTransceiver) << mPDU;   // send MPDU to transceiver
+//        (*_pTransceiver) << mPDU;   // send MPDU to transceiver
 
         //destroy beacon at the end ?
-        delete(pBcon);
+//        delete(pBcon);
     }
     else if(frame.type() == FrameType::MPDU)
     {
@@ -154,5 +155,13 @@ bool NetworkEntity::svPublishRequest(AbstractApplication* pAbsApp, SvGroup group
     else
     {
         return false;
+    }
+}
+
+void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, const ITimeSlotManager::SIG & signal)
+{
+    if(signal == ITimeSlotManager::OWN_SLOT_START)
+    {
+        (*_pTransceiver) << mPDU;   // send MPDU to transceiver
     }
 }

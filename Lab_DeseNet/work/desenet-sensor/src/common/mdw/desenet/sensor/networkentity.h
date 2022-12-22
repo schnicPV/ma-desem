@@ -27,7 +27,7 @@ class Net;
 /**
  * @brief Implements the desenet protocol on the network layer.
  */
-class NetworkEntity
+class NetworkEntity : public ITimeSlotManager::Observer         // add inheritance of Observer class (inside ITimeSlotManager class) to use the 'onTimeSlotSignal()' method !
 {
     friend class AbstractApplication;
     friend class Net;
@@ -88,6 +88,12 @@ private:
 
 public:
     MultiPDU mPDU;// = MultiPDU();                                      // the object to the multi PDU
+
+protected:
+    /* implement this method because it is virtual in Observer class !
+     * this method is probably called by the timeout signal after having set the timeslotmanager
+     */
+    virtual void onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, const ITimeSlotManager::SIG & signal);
 };
 
 } // sensor
