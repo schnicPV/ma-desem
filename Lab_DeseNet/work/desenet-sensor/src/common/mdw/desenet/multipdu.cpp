@@ -18,7 +18,7 @@ MultiPDU::MultiPDU() : Frame(Frame::Mtu) ,
     setLength(Frame::HEADER_SIZE +
               currentDataByteIdx +                  // length of data is 2 because 1st byte contains frame type and sensor ID, 2nd byte contains ePDU length = 0
               Frame::FOOTER_SIZE);
-    memcpy(buffer() + Frame::HEADER_SIZE,           // Copy default sensor slot number (<=> default sensor ID) into first data byte of buffer
+    memcpy(bufferStartAddr + Frame::HEADER_SIZE,           // Copy default sensor slot number (<=> default sensor ID) into first data byte of buffer
            &DEFAULT_DESENET_SLOT_NUMBER,
            sizeof(DEFAULT_DESENET_SLOT_NUMBER));
     setType(FrameType::MPDU);                       // AFTER having set slot number => set type to MPDU (constantly)
@@ -41,13 +41,13 @@ bool MultiPDU::addEPDU(SvGroup group, size_t byteLength)
         e2b.header.size = byteLength;                                  // length of ePDU payload
 
         // copy first byte (<=> e2b.byte) into MPDU
-        memcpy(buffer() + Frame::HEADER_SIZE + currentDataByteIdx + Frame::FOOTER_SIZE,
+        memcpy(bufferStartAddr + Frame::HEADER_SIZE + currentDataByteIdx + Frame::FOOTER_SIZE,
                &e2b.byte,
                sizeof(e2b.byte));
         currentDataByteIdx++;
 
         // copy data into MPDU
-        memcpy(buffer() + Frame::HEADER_SIZE + currentDataByteIdx + Frame::FOOTER_SIZE,
+        memcpy(bufferStartAddr + Frame::HEADER_SIZE + currentDataByteIdx + Frame::FOOTER_SIZE,
                svBuffer.data(),
                byteLength);
         currentDataByteIdx++;
@@ -75,7 +75,7 @@ void MultiPDU::addEPDUheader(uint8_t type, SvGroup group, uint8_t length, uint8_
     e2b.header.type = type;                                    // always zero for SV ePDU
 
     // copy first byte (<=> e2b.byte) into MPDU
-    memcpy(buffer() + Frame::HEADER_SIZE + index + Frame::FOOTER_SIZE,
+    memcpy(bufferStartAddr + Frame::HEADER_SIZE + index + Frame::FOOTER_SIZE,
            &e2b.byte,
            sizeof(e2b.byte));
 }
@@ -87,7 +87,7 @@ void MultiPDU::addEPDU(EvId evID, SharedByteBuffer data)
 
 void MultiPDU::updateEPDUcnt()
 {
-    memcpy(buffer() + Frame::HEADER_SIZE + 1, &ePDUcnt, sizeof(ePDUcnt));
+    memcpy(bufferStartAddr + Frame::HEADER_SIZE + 1, &ePDUcnt, sizeof(ePDUcnt));
 }
 
 void MultiPDU::updateHeaderLength(uint8_t index)
@@ -114,7 +114,7 @@ void MultiPDU::clear()
     uint8_t zero = 0;
     for(uint8_t byteNbr = 2; byteNbr < (Frame::Mtu - Frame::HEADER_SIZE - Frame::FOOTER_SIZE - 2); byteNbr++)            // the -2 comes from the framye type / sensor ID frame + ePDU count byte
     {
-        memcpy(buffer() + Frame::HEADER_SIZE + byteNbr + Frame::FOOTER_SIZE, &zero, sizeof(zero));
+        memcpy(bufferStartAddr + Frame::HEADER_SIZE + byteNbr + Frame::FOOTER_SIZE, &zero, sizeof(zero));
     }
 }
 
@@ -126,7 +126,7 @@ uint8_t MultiPDU::currentIndex()
 
 uint8_t MultiPDU::getRemainingLength()
 {
-    return Frame::Mtu - Frame::HEADER_SIZE - Frame::FOOTER_SIZE - currentDataByteIdx + 1;   // + 1 due to definition of position
+    return Frame::Mtu - Frame::HEADER_SIZE - Frame::FOOTER_SIZE - currentDataByteIdx;
 }
 
 uint8_t* MultiPDU::getBufferStartAddr()
@@ -136,5 +136,5 @@ uint8_t* MultiPDU::getBufferStartAddr()
 
 uint8_t* MultiPDU::getValidStart()
 {
-    return bufferStartAddr + Frame::HEADER_SIZE + currentDataByteIdx + 1 + Frame::FOOTER_SIZE;  // + 1 due to definition of position
+    return bufferStartAddr + Frame::HEADER_SIZE + currentDataByteIdx + 1 + Frame::FOOTER_SIZE;  // + 1 due to definition of position (effective start of write operation)
 }

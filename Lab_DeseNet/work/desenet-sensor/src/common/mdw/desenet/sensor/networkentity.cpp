@@ -117,20 +117,8 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
                 }
             }
         }
-//        (*_pTransceiver) << mPDU;   // send MPDU to transceiver
-
-        //destroy beacon at the end ?
-//        delete(pBcon);
     }
-    else if(frame.type() == FrameType::MPDU)
-    {
-        // do something
-    }
-    else
-    {
-        return;     // invalid frame received
-    }
-//    ledController().flashLed(0);    // this flashes the LED on the simulated board
+    ledController().flashLed(0);    // this flashes the LED on the simulated board
 }
 
 board::LedController & NetworkEntity::ledController() const
