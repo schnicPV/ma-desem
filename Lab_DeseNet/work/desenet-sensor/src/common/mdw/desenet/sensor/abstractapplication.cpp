@@ -34,7 +34,7 @@ void AbstractApplication::evPublishRequest(EvId id, const SharedByteBuffer & evD
  */
 void AbstractApplication::svSyncIndication(desenet::NetworkTime)
 {
-    // due to polymorphism never landing here! --> it is desired to call svSyncIndication() of Accelerometer or Joystick!
+    // due to polymorphism never landing here! --> it is desired to call svSyncIndication() of Accelerometer!
 }
 
 /**

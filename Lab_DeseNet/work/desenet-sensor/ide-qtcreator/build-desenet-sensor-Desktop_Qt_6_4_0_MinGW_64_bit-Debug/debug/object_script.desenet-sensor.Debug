@@ -1,3 +1,4 @@
+debug/joystickapplication.o
 debug/accelerometerapplication.o
 debug/factory.o
 debug/multipdu.o

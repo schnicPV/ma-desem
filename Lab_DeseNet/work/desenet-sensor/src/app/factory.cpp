@@ -86,10 +86,10 @@ void Factory::buildApplication()
 
     // Initialize applications
     accelerometerApplication().initialize();
+    joystick().initialize();
 
-    //
     // Initialize relations
-    //
+    joystick().setObserver(&joystickApplication());     // set joystick observer
 
 #ifdef USE_DISPLAY
     char str[32];
@@ -118,6 +118,7 @@ void Factory::buildApplication()
     clockwork().start();
     net().start();
     accelerometerApplication().start();
+    joystick().start();                     // this is not forcingly necessary because Joystick::start() is empty!
 }
 
 #ifdef TC_MESHSIM
@@ -141,6 +142,18 @@ board::Accelerometer & Factory::accelerometer() const
     static board::Accelerometer accelerometer;
 
     return accelerometer;
+}
+
+app::JoystickApplication & Factory::joystickApplication() const
+{
+    static app::JoystickApplication joystickApp;
+
+    return joystickApp;         // reference to joystick application
+}
+
+board::Joystick & Factory::joystick() const
+{
+    return board::Joystick::instance();     // reference to the singleton joystick object
 }
 
 Net & Factory::net() const
