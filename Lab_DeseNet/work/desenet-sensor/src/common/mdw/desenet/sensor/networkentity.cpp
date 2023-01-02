@@ -91,11 +91,9 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
         _pTimeSlotManager->onBeaconReceived(pBcon->slotDuration());
 
         // notify all applications
-        int dummy_cnt = 0;
         for(auto list_elm = appSyncList.begin(); list_elm != appSyncList.end(); list_elm++)     // parse a list acc. to example on cplusplus.com
         {
             (*list_elm)->svSyncIndication(receptionTime);
-            dummy_cnt++;
         }
 
         // publish request for all applications
@@ -111,12 +109,31 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
                 {
                     mPDU.addEPDUheader(SV_EPDU_TYPE, idx, writtenByteLength, mPDU.currentDataByteIdx);      // here the currentDataByteIndex should be 2 because of clear() above
                     mPDU.currentDataByteIdx = mPDU.currentDataByteIdx + writtenByteLength + 1;              // + 1 because the data is set 1 after ePDU header (see line above)
-                    mPDU.ePDUcnt++;
+                    /*mPDU.ePDUcnt++;
                     mPDU.updateEPDUcnt();
-                    mPDU.updateHeaderLength(mPDU.currentDataByteIdx);
+                    mPDU.updateHeaderLength();*/
+                    mPDU.postProcessingAdditionEPDU();
                 }
             }
         }
+
+        // try to insert events into MPDU
+        for(auto list_elm = evList.begin(); list_elm != evList.end(); list_elm++)               // parse a list acc. to example on cplusplus.com
+        {
+            uint8_t evSize = (list_elm->data).length();
+            if((evSize <= mPDU.getRemainingLength() - 1) && (evSize > 0))                       // -1 due to EPDU header
+            {
+                mPDU.addEPDUheader(EV_EPDU_TYPE, list_elm->id, evSize, mPDU.currentDataByteIdx);
+                mPDU.insertEventEPDU(list_elm->data, evSize, mPDU.currentDataByteIdx + 1);
+                mPDU.currentDataByteIdx = mPDU.currentDataByteIdx + evSize + 1;                 // + 1 because the data is set 1 after ePDU header
+                mPDU.postProcessingAdditionEPDU();
+            }
+            else
+            {
+                break;
+            }
+        }
+        evList.clear();
     }
     ledController().flashLed(0);    // this flashes the LED on the simulated board
 }
@@ -144,6 +161,12 @@ bool NetworkEntity::svPublishRequest(AbstractApplication* pAbsApp, SvGroup group
     {
         return false;
     }
+}
+
+void NetworkEntity::evPublishRequest(EvId id, const SharedByteBuffer & evData)
+{
+    EventElement evElm = EventElement(id, evData);      // create new EventElement
+    evList.push_back(evElm);                            // add EventElement to end of list
 }
 
 void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, const ITimeSlotManager::SIG & signal)

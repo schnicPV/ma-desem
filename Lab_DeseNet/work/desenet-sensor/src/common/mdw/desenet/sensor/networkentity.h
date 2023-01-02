@@ -86,6 +86,10 @@ private:
     ApplicationSyncList appSyncList;                                        // List which contains all subscribed and synchronized 'AbstractApplication's
     ApplicationPublishersArray appPubArray;                                 // Array which contains all subscribed 'AbstractApplication's which are ready to to publish data (created by the MultiPDU class)
 
+private:
+    void evPublishRequest(EvId id, const SharedByteBuffer & evData);
+    EventElementList evList;
+
 public:
     MultiPDU mPDU;// = MultiPDU();                                      // the object to the multi PDU
 

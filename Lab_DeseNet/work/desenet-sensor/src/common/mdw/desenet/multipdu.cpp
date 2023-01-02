@@ -4,10 +4,10 @@ using namespace desenet;
 
 // constructor of MultiPDU class => MultiPDU is a Frame => create Frame with maximum transfer unit (MTU)
 MultiPDU::MultiPDU() : Frame(Frame::Mtu) ,
-    EMPTY_DATA_LENGTH(2) ,
+    ePDUcnt(0) ,
 //    currentDataByteIdx(EMPTY_DATA_LENGTH),
-    MAX_DATA_LENGTH(Frame::Mtu - EMPTY_DATA_LENGTH),
-    ePDUcnt(0)
+    EMPTY_DATA_LENGTH(2),
+    MAX_DATA_LENGTH(Frame::Mtu - EMPTY_DATA_LENGTH)
 {
     // set up index variable and pointer to buffer
     currentDataByteIdx = EMPTY_DATA_LENGTH;
@@ -30,42 +30,6 @@ MultiPDU::~MultiPDU()
     // do nothing
 }
 
-bool MultiPDU::addEPDU(SvGroup group, size_t byteLength)
-{
-    if(byteLength <= (MAX_DATA_LENGTH - currentDataByteIdx))           // fill directly into MPDU
-    {
-        // create ePDU
-        EPDUH2Byte e2b;
-        e2b.header.type = 0;                                           // always zero for SV ePDU
-        e2b.header.group = group;                                      // group nbr of SV
-        e2b.header.size = byteLength;                                  // length of ePDU payload
-
-        // copy first byte (<=> e2b.byte) into MPDU
-        memcpy(bufferStartAddr + Frame::HEADER_SIZE + currentDataByteIdx + Frame::FOOTER_SIZE,
-               &e2b.byte,
-               sizeof(e2b.byte));
-        currentDataByteIdx++;
-
-        // copy data into MPDU
-        memcpy(bufferStartAddr + Frame::HEADER_SIZE + currentDataByteIdx + Frame::FOOTER_SIZE,
-               svBuffer.data(),
-               byteLength);
-        currentDataByteIdx++;
-
-        // ePDU counter increment + copy new value into MPDU
-        ePDUcnt++;
-        updateEPDUcnt();
-
-        // set new lengtt of MPDU (copies value to MPDU)
-        setLength(Frame::HEADER_SIZE + currentDataByteIdx + Frame::FOOTER_SIZE);
-        return true;
-    }
-    else
-    {
-        return false;       // if there's no place in the MPDU, then do NOT queue something because this is not a good idea in real-time application
-    }
-}
-
 void MultiPDU::addEPDUheader(uint8_t type, SvGroup group, uint8_t length, uint8_t index)
 {
     // create ePDU
@@ -80,9 +44,25 @@ void MultiPDU::addEPDUheader(uint8_t type, SvGroup group, uint8_t length, uint8_
            sizeof(e2b.byte));
 }
 
-void MultiPDU::addEPDU(EvId evID, SharedByteBuffer data)
+void MultiPDU::addEPDUheader(uint8_t type, EvId evID, uint8_t length, uint8_t index)
 {
-    // tbc
+    // create ePDU
+    EPDUH2Byte e2b;
+    e2b.header.size = length;                                  // length of ePDU payload
+    e2b.header.group = evID;                                   // Event ID
+    e2b.header.type = type;                                    // always one for EV ePDU
+
+    // copy first byte (<=> e2b.byte) into MPDU
+    memcpy(bufferStartAddr + Frame::HEADER_SIZE + index + Frame::FOOTER_SIZE,
+           &e2b.byte,
+           sizeof(e2b.byte));
+}
+
+void MultiPDU::insertEventEPDU(const SharedByteBuffer& data, uint8_t length, uint8_t index)
+{
+    memcpy(bufferStartAddr + Frame::HEADER_SIZE + index + Frame::FOOTER_SIZE,
+           &data,
+           length);
 }
 
 void MultiPDU::updateEPDUcnt()
@@ -90,14 +70,16 @@ void MultiPDU::updateEPDUcnt()
     memcpy(bufferStartAddr + Frame::HEADER_SIZE + 1, &ePDUcnt, sizeof(ePDUcnt));
 }
 
-void MultiPDU::updateHeaderLength(uint8_t index)
+void MultiPDU::updateHeaderLength()
 {
-    setLength(Frame::HEADER_SIZE + index + Frame::FOOTER_SIZE);
+    setLength(Frame::HEADER_SIZE + currentDataByteIdx + Frame::FOOTER_SIZE);
 }
 
-bool MultiPDU::spaceAvailable()
+void MultiPDU::postProcessingAdditionEPDU()
 {
-    return !mpduFull;
+    ePDUcnt++;
+    updateEPDUcnt();
+    updateHeaderLength();
 }
 
 void MultiPDU::clear()
@@ -107,7 +89,7 @@ void MultiPDU::clear()
     currentDataByteIdx = EMPTY_DATA_LENGTH;     // +1 because we want to start just after the empty length
 
     // reset the buffer
-    updateHeaderLength(EMPTY_DATA_LENGTH);
+    updateHeaderLength();
     updateEPDUcnt();
 
     // clear all data to zero => ATTENTION: This is NOT forcingly necessary but maybe useful for debug purpose!
@@ -118,20 +100,9 @@ void MultiPDU::clear()
     }
 }
 
-// Method which returns the index of the current bit in the MPDU Frame
-uint8_t MultiPDU::currentIndex()
-{
-    return *bufferStartAddr;
-}
-
 uint8_t MultiPDU::getRemainingLength()
 {
     return Frame::Mtu - Frame::HEADER_SIZE - Frame::FOOTER_SIZE - currentDataByteIdx;
-}
-
-uint8_t* MultiPDU::getBufferStartAddr()
-{
-    return bufferStartAddr;
 }
 
 uint8_t* MultiPDU::getValidStart()
