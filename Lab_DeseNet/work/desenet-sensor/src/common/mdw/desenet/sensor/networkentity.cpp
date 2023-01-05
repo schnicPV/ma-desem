@@ -81,7 +81,7 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
     (void)(receptionTime);
     Frame frame = Frame::useBuffer(buffer, length);
 
-    // TODO: Add your code here
+    // check that received frame is a Beacon
     if(frame.type() == FrameType::Beacon)
     {
         // create new beacon
@@ -103,37 +103,32 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
         {
             if(appPubArray[idx] != nullptr)
             {
-                SharedByteBuffer buffer = SharedByteBuffer::proxy(mPDU.getValidStart(), mPDU.getRemainingLength());
-                writtenByteLength = appPubArray[idx]->svPublishIndication(idx, buffer);
+                SharedByteBuffer buffer = SharedByteBuffer::proxy(mPDU.getValidStart(), mPDU.getRemainingLength());     // this buffer uses the remaining part of the MPDU frame
+                writtenByteLength = appPubArray[idx]->svPublishIndication(idx, buffer);                                 // returns the written byte length (if not succesful: returns 0)
                 if(writtenByteLength > 0)
                 {
-                    mPDU.addEPDUheader(SV_EPDU_TYPE, idx, writtenByteLength, mPDU.currentDataByteIdx);      // here the currentDataByteIndex should be 2 because of clear() above
-                    mPDU.currentDataByteIdx = mPDU.currentDataByteIdx + writtenByteLength + 1;              // + 1 because the data is set 1 after ePDU header (see line above)
-                    /*mPDU.ePDUcnt++;
-                    mPDU.updateEPDUcnt();
-                    mPDU.updateHeaderLength();*/
-                    mPDU.postProcessingAdditionEPDU();
+                    mPDU.addEPDUheader(SV_EPDU_TYPE, idx, writtenByteLength);           // here the currentDataByteIndex is 2 because of clear() above
+                    mPDU.postProcessingAdditionEPDU(writtenByteLength);                 // update all counters and data byte index with written byte length
                 }
             }
         }
 
         // try to insert events into MPDU
-        for(auto list_elm = evList.begin(); list_elm != evList.end(); list_elm++)               // parse a list acc. to example on cplusplus.com
+        for(auto list_elm = evList.begin(); list_elm != evList.end(); list_elm++)       // parse the event buffer
         {
             uint8_t evSize = (list_elm->data).length();
-            if((evSize <= mPDU.getRemainingLength() - 1) && (evSize > 0))                       // -1 due to EPDU header
+            if((evSize <= mPDU.getRemainingLength() - 1) && (evSize > 0))               // -1 due to EPDU header
             {
-                mPDU.addEPDUheader(EV_EPDU_TYPE, list_elm->id, evSize, mPDU.currentDataByteIdx);
-                mPDU.insertEventEPDU(list_elm->data, evSize, mPDU.currentDataByteIdx + 1);
-                mPDU.currentDataByteIdx = mPDU.currentDataByteIdx + evSize + 1;                 // + 1 because the data is set 1 after ePDU header
-                mPDU.postProcessingAdditionEPDU();
+                mPDU.addEPDUheader(EV_EPDU_TYPE, list_elm->id, evSize);
+                mPDU.insertEventEPDU(list_elm->data, evSize);
+                mPDU.postProcessingAdditionEPDU(evSize);                                // update all counters and data byte index with written byte length
             }
             else
             {
                 break;
             }
         }
-        evList.clear();
+        evList.clear();             // clear always the event buffer, because in realt-time it is desired to take always the newest elements (and not to overcharge the buffer)
     }
     ledController().flashLed(0);    // this flashes the LED on the simulated board
 }

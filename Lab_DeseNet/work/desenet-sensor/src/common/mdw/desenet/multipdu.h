@@ -13,12 +13,11 @@ namespace desenet
         ~MultiPDU();
 
         uint8_t ePDUcnt;            // the ePDU counter indicates the number of ePDUs in the data byte buffer
-        uint8_t currentDataByteIdx; // indicates the length (in nbr of bytes) of the data byte buffer
+        uint8_t currentDataByteIdx; // indicates the current position (in nbr of bytes after header) of the data byte buffer
 
-//        bool addEPDU(SvGroup group, size_t byteLength); //unused!
-        void insertEventEPDU(const SharedByteBuffer& data, uint8_t length, uint8_t index);
-        void addEPDUheader(uint8_t type, SvGroup group, uint8_t length, uint8_t index);
-        void addEPDUheader(uint8_t type, EvId evID, uint8_t length, uint8_t index);
+        void insertEventEPDU(const SharedByteBuffer& data, uint8_t length);
+        void addEPDUheader(uint8_t type, SvGroup group, uint8_t length);
+        void addEPDUheader(uint8_t type, EvId evID, uint8_t length);
 
         void clear();
         SharedByteBuffer svBuffer;
@@ -28,7 +27,7 @@ namespace desenet
 
         void updateEPDUcnt();
         void updateHeaderLength();
-        void postProcessingAdditionEPDU();
+        void postProcessingAdditionEPDU(uint8_t length);
 
     protected:
         uint8_t* bufferStartAddr;

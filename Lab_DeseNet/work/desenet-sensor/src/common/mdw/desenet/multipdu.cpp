@@ -30,37 +30,43 @@ MultiPDU::~MultiPDU()
     // do nothing
 }
 
-void MultiPDU::addEPDUheader(uint8_t type, SvGroup group, uint8_t length, uint8_t index)
+void MultiPDU::addEPDUheader(uint8_t type, SvGroup group, uint8_t length)
 {
-    // create ePDU
+    // create ePDU header
     EPDUH2Byte e2b;
     e2b.header.size = length;                                  // length of ePDU payload
     e2b.header.group = group;                                  // group nbr of SV
     e2b.header.type = type;                                    // always zero for SV ePDU
 
     // copy first byte (<=> e2b.byte) into MPDU
-    memcpy(bufferStartAddr + Frame::HEADER_SIZE + index + Frame::FOOTER_SIZE,
+    memcpy(bufferStartAddr + Frame::HEADER_SIZE + currentDataByteIdx + Frame::FOOTER_SIZE,
            &e2b.byte,
            sizeof(e2b.byte));
+
+    // increase current data byte index to write the data after header
+    currentDataByteIdx++;
 }
 
-void MultiPDU::addEPDUheader(uint8_t type, EvId evID, uint8_t length, uint8_t index)
+void MultiPDU::addEPDUheader(uint8_t type, EvId evID, uint8_t length)
 {
-    // create ePDU
+    // create ePDU header
     EPDUH2Byte e2b;
     e2b.header.size = length;                                  // length of ePDU payload
     e2b.header.group = evID;                                   // Event ID
     e2b.header.type = type;                                    // always one for EV ePDU
 
     // copy first byte (<=> e2b.byte) into MPDU
-    memcpy(bufferStartAddr + Frame::HEADER_SIZE + index + Frame::FOOTER_SIZE,
+    memcpy(bufferStartAddr + Frame::HEADER_SIZE + currentDataByteIdx + Frame::FOOTER_SIZE,
            &e2b.byte,
            sizeof(e2b.byte));
+
+    // increase current data byte index to write the data after header
+    currentDataByteIdx++;
 }
 
-void MultiPDU::insertEventEPDU(const SharedByteBuffer& data, uint8_t length, uint8_t index)
+void MultiPDU::insertEventEPDU(const SharedByteBuffer& data, uint8_t length)
 {
-    memcpy(bufferStartAddr + Frame::HEADER_SIZE + index + Frame::FOOTER_SIZE,
+    memcpy(bufferStartAddr + Frame::HEADER_SIZE + currentDataByteIdx + Frame::FOOTER_SIZE,
            &data,
            length);
 }
@@ -75,9 +81,10 @@ void MultiPDU::updateHeaderLength()
     setLength(Frame::HEADER_SIZE + currentDataByteIdx + Frame::FOOTER_SIZE);
 }
 
-void MultiPDU::postProcessingAdditionEPDU()
+void MultiPDU::postProcessingAdditionEPDU(uint8_t length)
 {
     ePDUcnt++;
+    currentDataByteIdx += length;       // update byte index with written byte length BEFORE calling updateHeaderLength()
     updateEPDUcnt();
     updateHeaderLength();
 }
