@@ -140,15 +140,8 @@ void MultiPDU::clear()
     updateHeaderLength();
     updateEPDUcnt();
 
-    /*
-     * clear all data to zero
-     * ATTENTION: This is NOT forcingly necessary but maybe useful for debug purpose!
-     */
-    uint8_t zero = 0;
-    for(uint8_t byteNbr = 2; byteNbr < (Frame::Mtu - Frame::HEADER_SIZE - Frame::FOOTER_SIZE - 2); byteNbr++)            // the -2 comes from the framye type / sensor ID frame + ePDU count byte
-    {
-        memcpy(bufferStartAddr + Frame::HEADER_SIZE + byteNbr + Frame::FOOTER_SIZE, &zero, sizeof(zero));
-    }
+    // clear all data to zero (NOT FORCINGLY NECESSARY!)
+    memset(bufferStartAddr + Frame::HEADER_SIZE + EMPTY_DATA_LENGTH + Frame::FOOTER_SIZE, 0, MAX_DATA_LENGTH);
 }
 
 /**
