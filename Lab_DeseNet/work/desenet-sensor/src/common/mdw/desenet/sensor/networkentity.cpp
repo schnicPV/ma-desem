@@ -101,7 +101,7 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
         size_t writtenByteLength = 0;
         for(SvGroup idx = 0; idx < MAX_GROUP_NBR; idx++)
         {
-            if(appPubArray[idx] != nullptr)
+            if((appPubArray[idx] != nullptr) && pBcon->svGroupMask()[idx])												// check if groupNbr (idx) is not a nullpointer and if Beacon wants to receive data from this group (idx)
             {
                 SharedByteBuffer buffer = SharedByteBuffer::proxy(mPDU.getValidStart(), mPDU.getRemainingLength());     // this buffer uses the remaining part of the MPDU frame
                 writtenByteLength = appPubArray[idx]->svPublishIndication(idx, buffer);                                 // returns the written byte length (if not succesful: returns 0)
@@ -125,10 +125,10 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
             }
             else
             {
-                break;
+            	break;
             }
         }
-        evList.clear();             // clear always the event buffer, because in realt-time it is desired to take always the newest elements (and not to overcharge the buffer)
+        evList.clear();             // clear always the event buffer, because in real-time it is desired to take always the newest elements (and not to overcharge the buffer)
     }
     ledController().flashLed(0);    // this flashes the LED on the simulated board
 }

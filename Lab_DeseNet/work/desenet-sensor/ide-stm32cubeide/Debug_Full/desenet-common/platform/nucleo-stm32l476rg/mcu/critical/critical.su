@@ -1,0 +1,2 @@
+C:/Users/nicis/HESSO/MSc_ElE/MA_DeSEm/ma-desem/Lab_DeseNet/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/critical/critical.c:8:6:enterCritical	4	static,ignoring_inline_asm
+C:/Users/nicis/HESSO/MSc_ElE/MA_DeSEm/ma-desem/Lab_DeseNet/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/critical/critical.c:23:6:exitCritical	4	static,ignoring_inline_asm

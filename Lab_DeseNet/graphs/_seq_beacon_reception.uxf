@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>5</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>425</x>
-      <y>75</y>
-      <w>110</w>
-      <h>20</h>
+      <x>192</x>
+      <y>56</y>
+      <w>176</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Singleton&gt;&gt;
 _:NetworkEntity_</panel_attributes>
@@ -16,10 +16,10 @@ _:NetworkEntity_</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>90</y>
-      <w>15</w>
-      <h>1220</h>
+      <x>264</x>
+      <y>80</y>
+      <w>24</w>
+      <h>1952</h>
     </coordinates>
     <panel_attributes>lt=.
 layer=0</panel_attributes>
@@ -28,10 +28,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>305</x>
-      <y>105</y>
-      <w>175</w>
-      <h>20</h>
+      <x>0</x>
+      <y>104</y>
+      <w>280</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 onReceive(driver, receptionTime, buffer, length)</panel_attributes>
@@ -40,10 +40,10 @@ onReceive(driver, receptionTime, buffer, length)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>570</x>
-      <y>125</y>
-      <w>110</w>
-      <h>15</h>
+      <x>424</x>
+      <y>136</y>
+      <w>176</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_frame:Frame_</panel_attributes>
     <additional_attributes/>
@@ -51,10 +51,10 @@ onReceive(driver, receptionTime, buffer, length)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>120</y>
-      <w>110</w>
-      <h>20</h>
+      <x>264</x>
+      <y>128</y>
+      <w>176</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 useBuffer(buffer, length)
@@ -64,10 +64,10 @@ layer=0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>635</x>
-      <y>160</y>
-      <w>110</w>
-      <h>15</h>
+      <x>528</x>
+      <y>192</y>
+      <w>176</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_pBcon:Beacon*_</panel_attributes>
     <additional_attributes/>
@@ -75,10 +75,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>155</y>
-      <w>170</w>
-      <h>20</h>
+      <x>272</x>
+      <y>184</y>
+      <w>272</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;create&gt;&gt;</panel_attributes>
@@ -87,10 +87,10 @@ layer=0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>685</x>
-      <y>45</y>
-      <w>140</w>
-      <h>15</h>
+      <x>608</x>
+      <y>8</y>
+      <w>224</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>__pTimeSlotManager:ITimeSlotManager*_</panel_attributes>
     <additional_attributes/>
@@ -98,10 +98,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
-      <y>55</y>
-      <w>15</w>
-      <h>1255</h>
+      <x>712</x>
+      <y>24</y>
+      <w>24</w>
+      <h>2008</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;2490.0</additional_attributes>
@@ -109,10 +109,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>190</y>
-      <w>295</w>
-      <h>20</h>
+      <x>264</x>
+      <y>240</y>
+      <w>472</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 onBeaconReceived(pBcon-&gt;slotDuration())
@@ -122,10 +122,10 @@ layer=0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>765</x>
-      <y>65</y>
-      <w>150</w>
-      <h>15</h>
+      <x>736</x>
+      <y>40</y>
+      <w>240</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_appSyncList:ApplicationSyncList_</panel_attributes>
     <additional_attributes/>
@@ -133,10 +133,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>825</x>
-      <y>75</y>
-      <w>20</w>
-      <h>1235</h>
+      <x>832</x>
+      <y>56</y>
+      <w>32</w>
+      <h>1976</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>20.0;10.0;10.0;2450.0</additional_attributes>
@@ -144,12 +144,12 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>225</y>
-      <w>370</w>
-      <h>20</h>
+      <x>264</x>
+      <y>296</y>
+      <w>592</w>
+      <h>32</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
+    <panel_attributes>lt=&lt;-
 list_elm
 layer=0</panel_attributes>
     <additional_attributes>720.0;20.0;10.0;20.0</additional_attributes>
@@ -157,10 +157,10 @@ layer=0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>925</x>
-      <y>80</y>
-      <w>90</w>
-      <h>15</h>
+      <x>992</x>
+      <y>64</y>
+      <w>144</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_:AccelerometerApplication_</panel_attributes>
     <additional_attributes/>
@@ -168,10 +168,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>955</x>
-      <y>90</y>
-      <w>20</w>
-      <h>1220</h>
+      <x>1040</x>
+      <y>80</y>
+      <w>32</w>
+      <h>1952</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>20.0;10.0;10.0;2420.0</additional_attributes>
@@ -179,10 +179,10 @@ layer=0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>830</x>
-      <y>230</y>
-      <w>10</w>
-      <h>85</h>
+      <x>840</x>
+      <y>304</y>
+      <w>16</w>
+      <h>136</h>
     </coordinates>
     <panel_attributes>
 bg=white
@@ -194,10 +194,10 @@ layer=2</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>960</x>
-      <y>250</y>
-      <w>10</w>
-      <h>55</h>
+      <x>1048</x>
+      <y>336</y>
+      <w>16</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>
 bg=white
@@ -209,10 +209,10 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>965</x>
-      <y>260</y>
-      <w>130</w>
-      <h>45</h>
+      <x>1056</x>
+      <y>352</y>
+      <w>208</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 _readAccelerometerValues()</panel_attributes>
@@ -221,10 +221,10 @@ _readAccelerometerValues()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>835</x>
-      <y>300</y>
-      <w>135</w>
-      <h>15</h>
+      <x>848</x>
+      <y>416</y>
+      <w>216</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;250.0;10.0</additional_attributes>
@@ -232,10 +232,10 @@ _readAccelerometerValues()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>305</y>
-      <w>365</w>
-      <h>15</h>
+      <x>272</x>
+      <y>424</y>
+      <w>584</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;710.0;10.0</additional_attributes>
@@ -243,10 +243,10 @@ _readAccelerometerValues()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1040</x>
-      <y>80</y>
-      <w>165</w>
-      <h>15</h>
+      <x>1176</x>
+      <y>64</y>
+      <w>264</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_appPubArray:ApplicationPublisherArray_</panel_attributes>
     <additional_attributes/>
@@ -254,10 +254,10 @@ _readAccelerometerValues()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1120</x>
-      <y>90</y>
-      <w>15</w>
-      <h>1225</h>
+      <x>1304</x>
+      <y>80</y>
+      <w>24</w>
+      <h>1960</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;2430.0</additional_attributes>
@@ -265,10 +265,10 @@ _readAccelerometerValues()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1165</x>
-      <y>100</y>
-      <w>110</w>
-      <h>15</h>
+      <x>1376</x>
+      <y>96</y>
+      <w>176</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_mPDU:MultiPDU_</panel_attributes>
     <additional_attributes/>
@@ -276,10 +276,10 @@ _readAccelerometerValues()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1215</x>
-      <y>110</y>
-      <w>15</w>
-      <h>1205</h>
+      <x>1456</x>
+      <y>112</y>
+      <w>24</w>
+      <h>1928</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;2390.0</additional_attributes>
@@ -287,10 +287,10 @@ _readAccelerometerValues()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>375</x>
-      <y>140</y>
-      <w>105</w>
-      <h>25</h>
+      <x>112</x>
+      <y>160</y>
+      <w>168</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 FrameType = Beacon
@@ -302,10 +302,10 @@ fg=red
   <element>
     <id>Text</id>
     <coordinates>
-      <x>315</x>
-      <y>40</y>
-      <w>95</w>
-      <h>20</h>
+      <x>16</x>
+      <y>0</y>
+      <w>152</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>Beacon reception:
 style=wordwrap
@@ -316,10 +316,10 @@ fontsize=20</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>340</x>
-      <y>220</y>
-      <w>1015</w>
-      <h>110</h>
+      <x>56</x>
+      <y>288</y>
+      <w>1624</w>
+      <h>176</h>
     </coordinates>
     <panel_attributes>loop to notify 
 all applications
@@ -333,10 +333,10 @@ transparency=90</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>335</y>
-      <w>760</w>
-      <h>20</h>
+      <x>264</x>
+      <y>472</y>
+      <w>1216</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 clear()
@@ -346,10 +346,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>355</y>
-      <w>755</w>
-      <h>15</h>
+      <x>272</x>
+      <y>504</y>
+      <w>1208</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;1490.0;10.0</additional_attributes>
@@ -357,10 +357,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>385</y>
-      <w>665</w>
-      <h>20</h>
+      <x>264</x>
+      <y>552</y>
+      <w>1064</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 appPubArray[idx]
@@ -370,22 +370,21 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>405</y>
-      <w>660</w>
-      <h>20</h>
+      <x>272</x>
+      <y>592</y>
+      <w>1056</w>
+      <h>24</h>
     </coordinates>
-    <panel_attributes>lt=.&gt;
-appPubArray[idx] =! nullptr</panel_attributes>
-    <additional_attributes>1300.0;20.0;10.0;20.0</additional_attributes>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>1300.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>340</x>
-      <y>375</y>
-      <w>1015</w>
-      <h>425</h>
+      <x>56</x>
+      <y>536</y>
+      <w>1624</w>
+      <h>680</h>
     </coordinates>
     <panel_attributes>loop to publish all
 sampled value data
@@ -394,16 +393,17 @@ sampled value data
 fg=blue
 bg=yellow
 layer=3
+
 transparency=90</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>990</x>
-      <y>430</y>
-      <w>110</w>
-      <h>15</h>
+      <x>1096</x>
+      <y>624</y>
+      <w>176</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_buffer:SharedByteBuffer_
 layer=2</panel_attributes>
@@ -412,10 +412,10 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>425</y>
-      <w>530</w>
-      <h>20</h>
+      <x>264</x>
+      <y>616</y>
+      <w>848</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;create&gt;&gt;
@@ -425,10 +425,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1035</x>
-      <y>440</y>
-      <w>20</w>
-      <h>875</h>
+      <x>1168</x>
+      <y>640</y>
+      <w>32</w>
+      <h>1400</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>20.0;10.0;10.0;1730.0</additional_attributes>
@@ -436,10 +436,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>460</y>
-      <w>580</w>
-      <h>20</h>
+      <x>264</x>
+      <y>672</y>
+      <w>928</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 proxy()
@@ -449,10 +449,10 @@ layer=0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1215</x>
-      <y>940</y>
-      <w>10</w>
-      <h>110</h>
+      <x>1456</x>
+      <y>1440</y>
+      <w>16</w>
+      <h>176</h>
     </coordinates>
     <panel_attributes>
 bg=white
@@ -464,10 +464,10 @@ layer=2</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1040</x>
-      <y>465</y>
-      <w>10</w>
-      <h>70</h>
+      <x>1176</x>
+      <y>680</y>
+      <w>16</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>
 bg=white
@@ -479,10 +479,10 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1045</x>
-      <y>470</y>
-      <w>185</w>
-      <h>20</h>
+      <x>1184</x>
+      <y>688</y>
+      <w>296</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 getValidStart()</panel_attributes>
@@ -491,10 +491,10 @@ getValidStart()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1045</x>
-      <y>500</y>
-      <w>185</w>
-      <h>20</h>
+      <x>1184</x>
+      <y>736</y>
+      <w>296</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 getRemainingLength()</panel_attributes>
@@ -503,10 +503,10 @@ getRemainingLength()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1045</x>
-      <y>485</y>
-      <w>185</w>
-      <h>15</h>
+      <x>1184</x>
+      <y>712</y>
+      <w>296</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
     <additional_attributes>350.0;10.0;10.0;10.0</additional_attributes>
@@ -514,10 +514,10 @@ getRemainingLength()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1045</x>
-      <y>515</y>
-      <w>185</w>
-      <h>15</h>
+      <x>1184</x>
+      <y>760</y>
+      <w>296</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
     <additional_attributes>350.0;10.0;10.0;10.0</additional_attributes>
@@ -525,10 +525,10 @@ getRemainingLength()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>520</y>
-      <w>580</w>
-      <h>20</h>
+      <x>272</x>
+      <y>768</y>
+      <w>928</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 buffer</panel_attributes>
@@ -537,10 +537,10 @@ buffer</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>470</x>
-      <y>110</y>
-      <w>10</w>
-      <h>1020</h>
+      <x>264</x>
+      <y>112</y>
+      <w>16</w>
+      <h>1632</h>
     </coordinates>
     <panel_attributes>
 bg=white
@@ -552,10 +552,10 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>550</y>
-      <w>655</w>
-      <h>20</h>
+      <x>272</x>
+      <y>816</y>
+      <w>1048</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 svPublishindication(idx, buffer)
@@ -565,10 +565,10 @@ layer=0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1120</x>
-      <y>550</y>
-      <w>10</w>
-      <h>75</h>
+      <x>1304</x>
+      <y>816</y>
+      <w>16</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>
 bg=white
@@ -580,10 +580,10 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1125</x>
-      <y>570</y>
-      <w>95</w>
-      <h>45</h>
+      <x>1312</x>
+      <y>848</y>
+      <w>152</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 memcpy(buffer, data)</panel_attributes>
@@ -592,10 +592,10 @@ memcpy(buffer, data)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>600</y>
-      <w>655</w>
-      <h>20</h>
+      <x>272</x>
+      <y>896</y>
+      <w>1048</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 writtenByteLength</panel_attributes>
@@ -604,10 +604,10 @@ writtenByteLength</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>615</y>
-      <w>100</w>
-      <h>25</h>
+      <x>120</x>
+      <y>920</y>
+      <w>160</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 writtenByteLength &gt; 0
@@ -619,10 +619,10 @@ fg=red
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>635</y>
-      <w>755</w>
-      <h>20</h>
+      <x>272</x>
+      <y>952</y>
+      <w>1208</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 addEPDUheader(svType, idx, writtenByteLength)
@@ -632,10 +632,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>650</y>
-      <w>755</w>
-      <h>20</h>
+      <x>272</x>
+      <y>976</y>
+      <w>1208</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 
@@ -645,10 +645,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>670</y>
-      <w>750</w>
-      <h>20</h>
+      <x>272</x>
+      <y>1008</y>
+      <w>1200</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 postProcessingAdditionEPDU(writtenByteLength)
@@ -658,10 +658,10 @@ layer=0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1215</x>
-      <y>675</y>
-      <w>10</w>
-      <h>115</h>
+      <x>1456</x>
+      <y>1016</y>
+      <w>16</w>
+      <h>184</h>
     </coordinates>
     <panel_attributes>
 bg=white
@@ -673,10 +673,10 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1220</x>
-      <y>685</y>
-      <w>70</w>
-      <h>45</h>
+      <x>1464</x>
+      <y>1032</y>
+      <w>112</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 ePDUcnt++
@@ -686,10 +686,10 @@ update index</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1220</x>
-      <y>735</y>
-      <w>100</w>
-      <h>45</h>
+      <x>1464</x>
+      <y>1112</y>
+      <w>160</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 updateEPDUcnt()
@@ -699,10 +699,10 @@ updateHeaderLength()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>770</y>
-      <w>750</w>
-      <h>20</h>
+      <x>272</x>
+      <y>1168</y>
+      <w>1200</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 
@@ -712,12 +712,13 @@ layer=0</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>340</x>
-      <y>1165</y>
-      <w>1015</w>
-      <h>90</h>
+      <x>56</x>
+      <y>1800</y>
+      <w>1624</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>send MPDU frame
+
 fg=blue
 bg=yellow
 layer=3
@@ -727,10 +728,10 @@ transparency=90</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1225</x>
-      <y>80</y>
-      <w>165</w>
-      <h>15</h>
+      <x>1472</x>
+      <y>64</y>
+      <w>264</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_evList:EventElementList_</panel_attributes>
     <additional_attributes/>
@@ -738,10 +739,10 @@ transparency=90</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1305</x>
-      <y>90</y>
-      <w>20</w>
-      <h>1225</h>
+      <x>1600</x>
+      <y>80</y>
+      <w>32</w>
+      <h>1960</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>20.0;10.0;10.0;2430.0</additional_attributes>
@@ -749,10 +750,10 @@ transparency=90</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>820</y>
-      <w>845</w>
-      <h>20</h>
+      <x>272</x>
+      <y>1248</y>
+      <w>1352</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 (list_elm-&gt;data).length()
@@ -762,10 +763,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>830</y>
-      <w>845</w>
-      <h>25</h>
+      <x>272</x>
+      <y>1264</y>
+      <w>1352</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 evSize
@@ -775,10 +776,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>850</y>
-      <w>120</w>
-      <h>25</h>
+      <x>88</x>
+      <y>1296</y>
+      <w>192</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 evSize &lt;= remainingLength
@@ -790,10 +791,10 @@ fg=red
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>860</y>
-      <w>755</w>
-      <h>20</h>
+      <x>272</x>
+      <y>1312</y>
+      <w>1208</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 addEPDUheader(evType, list_elm-&gt;id, evSize)
@@ -803,10 +804,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>875</y>
-      <w>755</w>
-      <h>20</h>
+      <x>272</x>
+      <y>1336</y>
+      <w>1208</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 
@@ -816,10 +817,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>900</y>
-      <w>755</w>
-      <h>20</h>
+      <x>272</x>
+      <y>1376</y>
+      <w>1208</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 insertEventEPDU(list_elm-&gt;data, evSize)
@@ -829,10 +830,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>915</y>
-      <w>755</w>
-      <h>20</h>
+      <x>272</x>
+      <y>1400</y>
+      <w>1208</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 
@@ -842,10 +843,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>935</y>
-      <w>750</w>
-      <h>20</h>
+      <x>272</x>
+      <y>1432</y>
+      <w>1200</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 postProcessingAdditionEPDU(evSize)
@@ -855,10 +856,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1220</x>
-      <y>950</y>
-      <w>70</w>
-      <h>45</h>
+      <x>1464</x>
+      <y>1456</y>
+      <w>112</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 ePDUcnt++
@@ -868,10 +869,10 @@ update index</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1220</x>
-      <y>995</y>
-      <w>100</w>
-      <h>45</h>
+      <x>1464</x>
+      <y>1528</y>
+      <w>160</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 updateEPDUcnt()
@@ -881,10 +882,10 @@ updateHeaderLength()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>1030</y>
-      <w>750</w>
-      <h>20</h>
+      <x>272</x>
+      <y>1584</y>
+      <w>1200</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 
@@ -894,10 +895,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>1065</y>
-      <w>850</w>
-      <h>20</h>
+      <x>264</x>
+      <y>1640</y>
+      <w>1360</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 clear()
@@ -907,10 +908,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>1080</y>
-      <w>845</w>
-      <h>20</h>
+      <x>272</x>
+      <y>1664</y>
+      <w>1352</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 
@@ -920,10 +921,10 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>355</x>
-      <y>1140</y>
-      <w>125</w>
-      <h>25</h>
+      <x>80</x>
+      <y>1760</y>
+      <w>200</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 timeSlot = OWN_SLOT_START
@@ -935,13 +936,14 @@ fg=red
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>340</x>
-      <y>820</y>
-      <w>1015</w>
-      <h>245</h>
+      <x>56</x>
+      <y>1248</y>
+      <w>1624</w>
+      <h>392</h>
     </coordinates>
     <panel_attributes>loop to try to
 add an event
+
 fg=blue
 bg=yellow
 layer=3
@@ -951,10 +953,10 @@ transparency=90</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>1205</y>
-      <w>110</w>
-      <h>45</h>
+      <x>272</x>
+      <y>1864</y>
+      <w>176</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 _pTransceiver &lt; &lt; mPDU</panel_attributes>
@@ -963,10 +965,10 @@ _pTransceiver &lt; &lt; mPDU</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>305</x>
-      <y>1110</y>
-      <w>175</w>
-      <h>15</h>
+      <x>0</x>
+      <y>1712</y>
+      <w>280</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
     <additional_attributes>330.0;10.0;10.0;10.0</additional_attributes>
@@ -974,10 +976,10 @@ _pTransceiver &lt; &lt; mPDU</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>470</x>
-      <y>1150</y>
-      <w>10</w>
-      <h>100</h>
+      <x>264</x>
+      <y>1776</y>
+      <w>16</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>
 bg=white
@@ -988,14 +990,43 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>475</x>
-      <y>1180</y>
-      <w>290</w>
-      <h>20</h>
+      <x>272</x>
+      <y>1824</y>
+      <w>464</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 onTimeSlotSignal(pBcon-&gt;slotDuration())
 layer=0</panel_attributes>
     <additional_attributes>560.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>56</x>
+      <y>600</y>
+      <w>224</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+appPubArray[idx] =! nullptr &amp;&amp;
+pBcon-&gt;svGroupMask()[idx] == 1
+bg=red
+fg=red
+</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>328</y>
+      <w>224</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+svSnycIndication(receptionTime)
+layer=0</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>

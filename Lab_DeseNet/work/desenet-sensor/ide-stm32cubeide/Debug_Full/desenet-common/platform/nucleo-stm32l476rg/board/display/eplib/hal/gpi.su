@@ -1,0 +1,2 @@
+C:/Users/nicis/HESSO/MSc_ElE/MA_DeSEm/ma-desem/Lab_DeseNet/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/hal/gpi.cpp:12:1:ep::Gpi::Gpi(GPIO_TypeDef*, uint32_t)	24	static
+C:/Users/nicis/HESSO/MSc_ElE/MA_DeSEm/ma-desem/Lab_DeseNet/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/hal/gpi.cpp:22:15:GPIO_PinState ep::Gpi::read()	24	static
