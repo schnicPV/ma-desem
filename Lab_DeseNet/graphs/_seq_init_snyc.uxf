@@ -4,8 +4,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>140</x>
-      <y>90</y>
+      <x>280</x>
+      <y>100</y>
       <w>140</w>
       <h>40</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>20</x>
-      <y>160</y>
+      <x>160</x>
+      <y>170</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -27,8 +27,8 @@ buildApplication()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>640</x>
-      <y>90</y>
+      <x>1000</x>
+      <y>100</y>
       <w>190</w>
       <h>40</h>
     </coordinates>
@@ -38,8 +38,8 @@ buildApplication()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>330</x>
-      <y>90</y>
+      <x>470</x>
+      <y>100</y>
       <w>140</w>
       <h>40</h>
     </coordinates>
@@ -49,42 +49,44 @@ buildApplication()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>200</x>
-      <y>310</y>
-      <w>540</w>
+      <x>340</x>
+      <y>320</y>
+      <w>760</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 initialize()</panel_attributes>
-    <additional_attributes>520.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>740.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>760</x>
-      <y>30</y>
-      <w>300</w>
+      <x>780</x>
+      <y>100</y>
+      <w>160</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>_appSyncList:ApplicationSyncList_</panel_attributes>
+    <panel_attributes>_appSyncList_
+_:ApplicationSyncList_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>970</x>
-      <y>90</y>
-      <w>330</w>
+      <x>870</x>
+      <y>170</y>
+      <w>180</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>_appPubArray:ApplicationPublisherArray_</panel_attributes>
+    <panel_attributes>_appPubArray_
+_:ApplicationPublisherArray_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>720</x>
-      <y>330</y>
+      <x>1080</x>
+      <y>340</y>
       <w>20</w>
       <h>370</h>
     </coordinates>
@@ -97,19 +99,19 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>680</y>
-      <w>530</w>
+      <x>350</x>
+      <y>690</y>
+      <w>750</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;510.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;730.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>120</y>
+      <x>530</x>
+      <y>130</y>
       <w>30</w>
       <h>800</h>
     </coordinates>
@@ -119,8 +121,8 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>120</y>
+      <x>1080</x>
+      <y>130</y>
       <w>30</w>
       <h>800</h>
     </coordinates>
@@ -131,19 +133,19 @@ layer=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>910</x>
-      <y>60</y>
+      <x>850</x>
+      <y>130</y>
       <w>30</w>
-      <h>860</h>
+      <h>800</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;840.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;780.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>200</x>
-      <y>190</y>
+      <x>340</x>
+      <y>200</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -154,8 +156,8 @@ initializeRelations()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>480</x>
-      <y>200</y>
+      <x>620</x>
+      <y>210</y>
       <w>190</w>
       <h>30</h>
     </coordinates>
@@ -165,8 +167,8 @@ initializeRelations()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>200</y>
+      <x>530</x>
+      <y>210</y>
       <w>110</w>
       <h>40</h>
     </coordinates>
@@ -177,8 +179,8 @@ initializeRelations()</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>30</x>
-      <y>20</y>
+      <x>170</x>
+      <y>30</y>
       <w>190</w>
       <h>40</h>
     </coordinates>
@@ -191,8 +193,8 @@ fontsize=20</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>200</x>
-      <y>120</y>
+      <x>340</x>
+      <y>130</y>
       <w>30</w>
       <h>810</h>
     </coordinates>
@@ -202,19 +204,19 @@ fontsize=20</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1120</x>
-      <y>120</y>
+      <x>950</x>
+      <y>200</y>
       <w>30</w>
-      <h>810</h>
+      <h>740</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;790.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;720.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>250</y>
+      <x>530</x>
+      <y>260</y>
       <w>110</w>
       <h>40</h>
     </coordinates>
@@ -225,8 +227,8 @@ fontsize=20</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>480</x>
-      <y>250</y>
+      <x>620</x>
+      <y>260</y>
       <w>190</w>
       <h>40</h>
     </coordinates>
@@ -237,8 +239,8 @@ _pTransceiver</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1310</x>
-      <y>90</y>
+      <x>1230</x>
+      <y>170</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -249,19 +251,19 @@ _:Joystick_</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1370</x>
-      <y>120</y>
+      <x>1290</x>
+      <y>200</y>
       <w>30</w>
-      <h>800</h>
+      <h>730</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;780.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;710.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>730</x>
-      <y>340</y>
+      <x>1090</x>
+      <y>350</y>
       <w>170</w>
       <h>90</h>
     </coordinates>
@@ -272,20 +274,20 @@ svSyncRequest()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>410</y>
-      <w>340</w>
+      <x>540</x>
+      <y>420</y>
+      <w>560</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-svSyncRequest(pAbsApp)</panel_attributes>
-    <additional_attributes>10.0;20.0;320.0;20.0</additional_attributes>
+r1=svSyncRequest(pAbsApp)</panel_attributes>
+    <additional_attributes>10.0;20.0;540.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>390</x>
-      <y>420</y>
+      <x>530</x>
+      <y>430</y>
       <w>20</w>
       <h>80</h>
     </coordinates>
@@ -298,32 +300,32 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>450</y>
-      <w>540</w>
+      <x>540</x>
+      <y>460</y>
+      <w>340</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 appSyncList.pushBack(pAbsApp)</panel_attributes>
-    <additional_attributes>520.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>580</y>
-      <w>340</w>
+      <x>540</x>
+      <y>590</y>
+      <w>560</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-svPublishRequest(pAbsApp, group)</panel_attributes>
-    <additional_attributes>10.0;20.0;320.0;20.0</additional_attributes>
+r1=svPublishRequest(pAbsApp, group)</panel_attributes>
+    <additional_attributes>10.0;20.0;540.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>390</x>
-      <y>590</y>
+      <x>530</x>
+      <y>600</y>
       <w>20</w>
       <h>80</h>
     </coordinates>
@@ -336,54 +338,55 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>620</y>
-      <w>750</w>
+      <x>540</x>
+      <y>630</y>
+      <w>440</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-appPubArray[group] = pAbsApp</panel_attributes>
-    <additional_attributes>730.0;20.0;10.0;20.0</additional_attributes>
+r1=appPubArray[group] = pAbsApp
+r1pos=-100,0</panel_attributes>
+    <additional_attributes>420.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>480</y>
-      <w>340</w>
+      <x>540</x>
+      <y>490</y>
+      <w>560</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>320.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>540.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>650</y>
-      <w>340</w>
+      <x>540</x>
+      <y>660</y>
+      <w>560</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>320.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>540.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>200</x>
-      <y>750</y>
-      <w>1200</w>
+      <x>340</x>
+      <y>760</y>
+      <w>980</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 initialize()</panel_attributes>
-    <additional_attributes>1180.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>960.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>730</x>
-      <y>510</y>
+      <x>1090</x>
+      <y>520</y>
       <w>220</w>
       <h>90</h>
     </coordinates>
@@ -394,8 +397,8 @@ svPublishRequest(group)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>200</x>
-      <y>170</y>
+      <x>340</x>
+      <y>180</y>
       <w>20</w>
       <h>710</h>
     </coordinates>
@@ -408,42 +411,42 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>780</y>
-      <w>1190</w>
+      <x>350</x>
+      <y>790</y>
+      <w>970</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;1170.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;950.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>810</y>
-      <w>1190</w>
+      <x>350</x>
+      <y>820</y>
+      <w>970</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 setObserver(&amp;JoystickApplication)</panel_attributes>
-    <additional_attributes>1170.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>950.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>850</y>
-      <w>1190</w>
+      <x>350</x>
+      <y>860</y>
+      <w>970</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;1170.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;950.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>50</x>
-      <y>860</y>
+      <x>190</x>
+      <y>870</y>
       <w>170</w>
       <h>30</h>
     </coordinates>
