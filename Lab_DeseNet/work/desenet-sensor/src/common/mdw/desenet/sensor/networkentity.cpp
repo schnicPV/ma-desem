@@ -195,7 +195,7 @@ void NetworkEntity::evPublishRequest(EvId id, const SharedByteBuffer & evData)
     evList.push_back(evElm);                            // add EventElement to end of list
     if(evList.size() > MAX_EVELM_NBR)
     {
-        evList_pop_front_multi(CUTOFF_EVELM_NBR);              // remove oldest CUTOFF_EVELM_NBR elements
+        evList_pop_front_multi(CUTOFF_EVELM_NBR);       // remove oldest CUTOFF_EVELM_NBR elements
     }
 }
 

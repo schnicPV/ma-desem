@@ -31,7 +31,6 @@ class NetworkEntity : public ITimeSlotManager::Observer         // add inheritan
 {
     friend class AbstractApplication;
     friend class Net;
-//    friend MultiPDU;      // added friend MultiPDU
 
 public:
     NetworkEntity();
@@ -98,6 +97,17 @@ protected:
 
 private:
     void evList_pop_front_multi(uint8_t elmNbr);
+
+public:
+    // enumeration definitions used in NetworkEntity
+    enum EPDU_TYPE {            ///< bit value of ePDU header
+        SV_EPDU_TYPE = 0,
+        EV_EPDU_TYPE = 1
+    };
+    enum EVELM_NBR {            ///< max values for event list handling
+        MAX_EVELM_NBR = 30,
+        CUTOFF_EVELM_NBR = 4
+    };
 };
 
 } // sensor
