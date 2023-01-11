@@ -12,7 +12,7 @@ using desenet::sensor::AbstractApplication;
 
 void AbstractApplication::svSyncRequest()
 {
-    // TODO: Register application using the network entity
+    // Register application using the network entity
     NetworkEntity::instance().svSyncRequest(this);
 /***Net::instance().entity().svSyncRequest(this);****/   // possible as well !
 }
@@ -20,13 +20,13 @@ void AbstractApplication::svSyncRequest()
 // limited with 16 sample slots => add new inscription to list only when this method reutrns true!
 bool AbstractApplication::svPublishRequest(SvGroup group)
 {
-    // TODO: Register application for the provided group using the network entity
+    // Register application for the provided group using the network entity
     return NetworkEntity::instance().svPublishRequest(this, group);
 }
 
 void AbstractApplication::evPublishRequest(EvId id, const SharedByteBuffer & evData)
 {
-    // TODO: Publish event data
+    // Publish event data
     NetworkEntity::instance().evPublishRequest(id, evData);
 }
 

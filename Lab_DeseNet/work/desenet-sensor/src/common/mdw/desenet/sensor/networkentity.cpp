@@ -81,24 +81,32 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
     // check that received frame is a Beacon
     if(frame.type() == FrameType::Beacon)
     {
-        // create new beacon
+        /******************************/
+        /* STEP 1 : create new beacon */
+        /******************************/
         Beacon* pBcon = new Beacon(frame);
 
-        // start timer for time slots
+        /***************************************/
+        /* STEP 2 : start timer for time slots */
+        /***************************************/
         _pTimeSlotManager->onBeaconReceived(pBcon->slotDuration());
 
-        // notify all applications
+        /************************************/
+        /* STEP 3 : notify all applications */
+        /************************************/
         for(auto list_elm = appSyncList.begin(); list_elm != appSyncList.end(); list_elm++)     // parse a list acc. to example on cplusplus.com
         {
             (*list_elm)->svSyncIndication(receptionTime);
         }
 
-        // publish request for all applications
+        /*************************************************/
+        /* STEP 4 : publish request for all applications */
+        /*************************************************/
         mPDU.clear();
         size_t writtenByteLength = 0;
         for(SvGroup idx = 0; idx < MAX_GROUP_NBR; idx++)
         {
-            if((appPubArray[idx] != nullptr) && pBcon->svGroupMask()[idx])												// check if groupNbr (idx) is not a nullpointer and if Beacon wants to receive data from this group (idx)
+            if((appPubArray[idx] != nullptr) && pBcon->svGroupMask()[idx])              // check if groupNbr (idx) is not a nullpointer and if Beacon wants to receive data from this group (idx)
             {
                 SharedByteBuffer buffer = SharedByteBuffer::proxy(mPDU.getValidStart(), mPDU.getRemainingLength());     // this buffer uses the remaining part of the MPDU frame
                 writtenByteLength = appPubArray[idx]->svPublishIndication(idx, buffer);                                 // returns the written byte length (if not succesful: returns 0)
@@ -110,7 +118,9 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
             }
         }
 
-        // try to insert events into MPDU
+        /*******************************************/
+        /* STEP 5 : try to insert events into MPDU */
+        /*******************************************/
         uint8_t addedElmCnt = 0;
         for(auto list_elm = evList.begin(); list_elm != evList.end(); list_elm++)   // parse the event buffer
         {
@@ -129,6 +139,7 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
             evList_pop_front_multi(addedElmCnt);    // remove the added elements from the event list
         }
     }
+
     ledController().flashLed(0);    // this flashes the LED on the simulated board
 }
 
@@ -214,6 +225,6 @@ void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, c
 void NetworkEntity::evList_pop_front_multi(uint8_t elmNbr)
 {
     auto cutoff_idx = evList.begin();
-    std::advance(cutoff_idx, elmNbr);
-    evList.erase(evList.begin(),cutoff_idx);
+    std::advance(cutoff_idx, elmNbr);           // go to desired index
+    evList.erase(evList.begin(),cutoff_idx);    // erase all elements from start to desired index
 }

@@ -13,7 +13,7 @@ namespace app
     public:
         JoystickApplication();
         ~JoystickApplication();
-        void onPositionChange(IJoystick::Position position);    // must be implemented due to virtual definition in IJosytickObserver
+        void onPositionChange(IJoystick::Position position);    // must be implemented due to virtual definition in IJosytickObserver !
 
     private:
         const uint8_t joystickEventBufferSize;                  ///< the size of the event buffer

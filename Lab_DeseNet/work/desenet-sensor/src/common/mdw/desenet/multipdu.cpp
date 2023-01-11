@@ -34,9 +34,11 @@ MultiPDU::~MultiPDU() {}
 
 /**
  * @brief   add the ePDU header of Sampled Value data
- * @param   type    the first bit (0)
- *          group   the SV group
- *          length  the number of bytes of the ePDU frame
+ *
+ * @param   type        the first bit (0)
+ * @param   group       the SV group
+ * @param   length      the number of bytes of the ePDU frame
+ *
  * @return  void
  */
 void MultiPDU::addEPDUheader(uint8_t type, SvGroup group, uint8_t length)
@@ -58,9 +60,11 @@ void MultiPDU::addEPDUheader(uint8_t type, SvGroup group, uint8_t length)
 
 /**
  * @brief   add ePDU header of EVent data
- * @param   type    the first bit (1)
- *          evID    the ID of the event
- *          length  the number of bytes of the ePDU frame
+ *
+ * @param   type        the first bit (1)
+ * @param   evID        the ID of the event
+ * @param   length      the number of bytes of the ePDU frame
+ *
  * @return  void
  */
 void MultiPDU::addEPDUheader(uint8_t type, EvId evID, uint8_t length)
@@ -81,8 +85,10 @@ void MultiPDU::addEPDUheader(uint8_t type, EvId evID, uint8_t length)
 }
 /**
  * @brief   insert a new event into the MPDU frame
- * @param   data    the SharedByteBuffer reference which holds the event data
- *          length  the number of bytes to write
+ *
+ * @param   data        the SharedByteBuffer reference which holds the event data
+ * @param   length      the number of bytes to write
+ *
  * @return  void
 */
 void MultiPDU::insertEventEPDU(const SharedByteBuffer& data, uint8_t length)
@@ -94,7 +100,9 @@ void MultiPDU::insertEventEPDU(const SharedByteBuffer& data, uint8_t length)
 
 /**
  * @brief   update the ePDU counter byte (fixed byte after frametype / sensor ID byte)
+ *
  * @param   none
+ *
  * @return  void
 */
 void MultiPDU::updateEPDUcnt()
@@ -104,7 +112,9 @@ void MultiPDU::updateEPDUcnt()
 
 /**
  * @brief   update the byte counter of the MPDU header
+ *
  * @param   none
+ *
  * @return  void
 */
 void MultiPDU::updateHeaderLength()
@@ -114,7 +124,9 @@ void MultiPDU::updateHeaderLength()
 
 /**
  * @brief   increase counters and update length after addition of a SINGLE ePDU (SV or EV)
- * @param   length  the number of bytes written to the MPDU frame
+ *
+ * @param   length      the number of bytes written to the MPDU frame
+ *
  * @return  void
 */
 void MultiPDU::postProcessingAdditionEPDU(uint8_t length)
@@ -127,7 +139,9 @@ void MultiPDU::postProcessingAdditionEPDU(uint8_t length)
 
 /**
  * @brief   reset counters and set all bytes to zero
+ *
  * @param   none
+ *
  * @return  void
 */
 void MultiPDU::clear()
@@ -145,9 +159,11 @@ void MultiPDU::clear()
 }
 
 /**
- * @brief   get the remaining length of the MPDU frame which can be written to
+ * @brief   get the remaining length of the MPDU frame which can be written to it
+ *
  * @param   none
- * @return  void
+ *
+ * @return  the remaining length
 */
 uint8_t MultiPDU::getRemainingLength()
 {
@@ -156,8 +172,10 @@ uint8_t MultiPDU::getRemainingLength()
 
 /**
  * @brief   get the valid start index to write to the MPDU frame
+ *
  * @param   none
- * @return  void
+ *
+ * @return  the pointer to the start index
 */
 uint8_t* MultiPDU::getValidStart()
 {
