@@ -81,23 +81,23 @@ protected:
     NetworkInterfaceDriver * _pTransceiver;			///< Pointer to transceiver.
 
 private:
-    void svSyncRequest(AbstractApplication* pAbsApp);                       // Method which stores a new 'AbstractApplication' pointer in the 'appSyncList' (called in 'AbstractApplication' after sync. request)
-    bool svPublishRequest(AbstractApplication* pAbsApp, SvGroup group);     // Method which stores a new 'AbstractApplication' pointer and the corresponding Group Nbr in the 'appPubArray' (called in 'AbstractApplication' after sync. request)
-    ApplicationSyncList appSyncList;                                        // List which contains all subscribed and synchronized 'AbstractApplication's
-    ApplicationPublishersArray appPubArray;                                 // Array which contains all subscribed 'AbstractApplication's which are ready to to publish data (created by the MultiPDU class)
+    void svSyncRequest(AbstractApplication* pAbsApp);
+    bool svPublishRequest(AbstractApplication* pAbsApp, SvGroup group);
+    ApplicationSyncList appSyncList;                                        ///< List which contains all subscribed and synchronized 'AbstractApplication's
+    ApplicationPublishersArray appPubArray;                                 ///< Array which contains all subscribed 'AbstractApplication's which are ready to to publish data (created by the MultiPDU class)
 
 private:
     void evPublishRequest(EvId id, const SharedByteBuffer & evData);
     EventElementList evList;
 
 public:
-    MultiPDU mPDU;// = MultiPDU();                                      // the object to the multi PDU
+    MultiPDU mPDU;      // the object to the multi PDU
 
 protected:
-    /* implement this method because it is virtual in Observer class !
-     * this method is probably called by the timeout signal after having set the timeslotmanager
-     */
     virtual void onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, const ITimeSlotManager::SIG & signal);
+
+private:
+    void evList_pop_front_multi(uint8_t elmNbr);
 };
 
 } // sensor

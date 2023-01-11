@@ -456,6 +456,10 @@ release/accelerometerapplication.o: ../../src/app/accelerometerapplication.cpp .
 		../../src/common/platform/qt-meshsim/board/accel/accelerometer.h \
 		../../src/common/mdw/clockwork/clockwork.h \
 		../../src/common/mdw/clockwork/ttime.h \
+		../../src/app/joystickapplication.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystickobserver.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystick.h \
+		../../src/common/platform/qt-meshsim/board/joystick.h \
 		../../src/xf/xfevent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\accelerometerapplication.o ..\..\src\app\accelerometerapplication.cpp
 
@@ -659,7 +663,9 @@ release/factory.o: ../../src/app/factory.cpp ../desenet-sensor/platform/qt-meshs
 		../../src/common/mdw/desenet/sensor/abstractapplication.h \
 		../../src/common/platform/qt-meshsim/board/accel/accelerometer.h \
 		../../src/common/mdw/clockwork/clockwork.h \
-		../../src/common/mdw/clockwork/ttime.h
+		../../src/common/mdw/clockwork/ttime.h \
+		../../src/app/joystickapplication.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystickobserver.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\factory.o ..\..\src\app\factory.cpp
 
 release/multipdu.o: ../../src/common/mdw/desenet/multipdu.cpp ../../src/common/mdw/desenet/multipdu.h \
@@ -1797,6 +1803,9 @@ release/simpledisplay.o: ../../src/common/platform/qt-meshsim/board/display/simp
 		../../src/common/platform/qt-meshsim/board/accel/accelerometer.h \
 		../../src/common/mdw/clockwork/clockwork.h \
 		../../src/common/mdw/clockwork/ttime.h \
+		../../src/app/joystickapplication.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystickobserver.h \
+		../../src/common/platform/qt-meshsim/board/joystick.h \
 		../../src/common/platform/qt-meshsim/board/display/simpledisplay.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\simpledisplay.o ..\..\src\common\platform\qt-meshsim\board\display\simpledisplay.cpp
 
@@ -1969,6 +1978,8 @@ release/joystick.o: ../../src/common/platform/qt-meshsim/board/joystick.cpp ../.
 		../../src/common/platform/qt-meshsim/board/accel/accelerometer.h \
 		../../src/common/mdw/clockwork/clockwork.h \
 		../../src/common/mdw/clockwork/ttime.h \
+		../../src/app/joystickapplication.h \
+		../../src/common/platform/qt-meshsim/board/joystick.h \
 		../../src/common/platform/qt-meshsim/board/meshsimboard.h \
 		C:/Qt/6.4.0/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.4.0/mingw_64/include/QtWidgets/qwidget.h \
@@ -1996,8 +2007,7 @@ release/joystick.o: ../../src/common/platform/qt-meshsim/board/joystick.cpp ../.
 		C:/Qt/6.4.0/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.4.0/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.4.0/mingw_64/include/QtGui/QPixmap \
-		C:/Qt/6.4.0/mingw_64/include/QtGui/QImage \
-		../../src/common/platform/qt-meshsim/board/joystick.h
+		C:/Qt/6.4.0/mingw_64/include/QtGui/QImage
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\joystick.o ..\..\src\common\platform\qt-meshsim\board\joystick.cpp
 
 release/ledcontroller.o: ../../src/common/platform/qt-meshsim/board/ledcontroller.cpp ../../src/app/factory.h \
@@ -2167,6 +2177,10 @@ release/ledcontroller.o: ../../src/common/platform/qt-meshsim/board/ledcontrolle
 		../../src/common/platform/qt-meshsim/board/accel/accelerometer.h \
 		../../src/common/mdw/clockwork/clockwork.h \
 		../../src/common/mdw/clockwork/ttime.h \
+		../../src/app/joystickapplication.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystickobserver.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystick.h \
+		../../src/common/platform/qt-meshsim/board/joystick.h \
 		../../src/common/platform/qt-meshsim/board/meshsimboard.h \
 		C:/Qt/6.4.0/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.4.0/mingw_64/include/QtWidgets/qwidget.h \
@@ -2195,7 +2209,6 @@ release/ledcontroller.o: ../../src/common/platform/qt-meshsim/board/ledcontrolle
 		C:/Qt/6.4.0/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.4.0/mingw_64/include/QtGui/QPixmap \
 		C:/Qt/6.4.0/mingw_64/include/QtGui/QImage \
-		../../src/common/platform/platform-common/board/interfaces/ijoystick.h \
 		../../src/common/platform/qt-meshsim/board/ledcontroller.h \
 		../../src/common/platform/platform-common/board/ledflasher.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\ledcontroller.o ..\..\src\common\platform\qt-meshsim\board\ledcontroller.cpp
@@ -4074,7 +4087,11 @@ release/main.o: ../desenet-sensor/main.cpp ../desenet-sensor/platform/qt-meshsim
 		../../src/common/mdw/desenet/sensor/abstractapplication.h \
 		../../src/common/platform/qt-meshsim/board/accel/accelerometer.h \
 		../../src/common/mdw/clockwork/clockwork.h \
-		../../src/common/mdw/clockwork/ttime.h
+		../../src/common/mdw/clockwork/ttime.h \
+		../../src/app/joystickapplication.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystickobserver.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystick.h \
+		../../src/common/platform/qt-meshsim/board/joystick.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\desenet-sensor\main.cpp
 
 ####### Install

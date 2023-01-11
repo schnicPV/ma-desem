@@ -31,6 +31,14 @@ const uint8_t EVID_JOYSTICK = 8;                                ///< Event Id fo
 
 #define DESNET_NODE_NAME                "SENSOR"
 
+/*** START CUSTOM DEFINITIONS ***/
+// used in NetworkEntity :
+#define SV_EPDU_TYPE 0      // the SV type bit of an ePDU header
+#define EV_EPDU_TYPE 1      // the EV type bit of an ePDU header
+#define MAX_EVELM_NBR 30    // the max event list size => theoretically 2 MPDU frames full of joystick events (15 * 2 bytes)
+#define CUTOFF_EVELM_NBR 4  // the number of (old) events to be cleared if max event list size is reached
+/*** END CUSTOM DEFINITIONS ***/
+
 #ifdef __cplusplus
   static const desenet::Address GATEWAY_ADDRESS({0xE2, 0xE2, 0xE2, 0xE2});      ///< @brief Gateway's reception address.
   static const desenet::Address SENSOR_ADDRESS({0xC7, 0xC7, 0xC7, 0xC7});       ///< @brief Sensor's reception address.

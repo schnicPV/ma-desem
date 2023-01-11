@@ -22,9 +22,6 @@ using std::vector;
 
 using desenet::sensor::NetworkEntity;
 
-#define SV_EPDU_TYPE 0
-#define EV_EPDU_TYPE 1
-
 NetworkEntity * NetworkEntity::_pInstance(nullptr);		// Instantiation of static attribute
 
 NetworkEntity::NetworkEntity()
@@ -114,21 +111,23 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
         }
 
         // try to insert events into MPDU
-        for(auto list_elm = evList.begin(); list_elm != evList.end(); list_elm++)       // parse the event buffer
+        uint8_t addedElmCnt = 0;
+        for(auto list_elm = evList.begin(); list_elm != evList.end(); list_elm++)   // parse the event buffer
         {
             uint8_t evSize = (list_elm->data).length();
-            if((evSize <= mPDU.getRemainingLength() - 1) && (evSize > 0))               // -1 due to EPDU header
+            if((evSize <= mPDU.getRemainingLength() - 1) && (evSize > 0))           // -1 due to EPDU header
             {
                 mPDU.addEPDUheader(EV_EPDU_TYPE, list_elm->id, evSize);
                 mPDU.insertEventEPDU(list_elm->data, evSize);
-                mPDU.postProcessingAdditionEPDU(evSize);                                // update all counters and data byte index with written byte length
+                mPDU.postProcessingAdditionEPDU(evSize);                            // update all counters and data byte index with written byte length
+                addedElmCnt++;
             }
-            else
-            {
-            	break;
-            }
+            else break;         // avoid unnessecary for loop iterations
         }
-        evList.clear();             // clear always the event buffer, because in real-time it is desired to take always the newest elements (and not to overcharge the buffer)
+        if(addedElmCnt > 0)
+        {
+            evList_pop_front_multi(addedElmCnt);    // remove the added elements from the event list
+        }
     }
     ledController().flashLed(0);    // this flashes the LED on the simulated board
 }
@@ -138,13 +137,26 @@ board::LedController & NetworkEntity::ledController() const
     return board::LedController::instance();
 }
 
-// add new 'AbstractApplication' pointer to the (synchronisation) list
+/**
+ * @brief   stores a new 'AbstractApplication' pointer in the 'appSyncList' (called in 'AbstractApplication' after sync. request)
+ *
+ * @param   pAbsApp     the pointer to the AbstractApplication
+ *
+ * @return  void
+ */
 void NetworkEntity::svSyncRequest(AbstractApplication* pAbsApp)
 {
     appSyncList.push_back(pAbsApp);
 }
 
-// add new 'AbstractApplication' pointer to the publisher list, only if the SV Group is free
+/**
+ * @brief   stores a new 'AbstractApplication' pointer and the corresponding Group Nbr in the 'appPubArray' (called in 'AbstractApplication' after sync. request)
+ *
+ * @param   pAbsApp
+ * @param   group
+ *
+ * @return  true if the publish request was succesful, false otherwise
+ */
 bool NetworkEntity::svPublishRequest(AbstractApplication* pAbsApp, SvGroup group)
 {
     if((group < MAX_GROUP_NBR) && (appPubArray[group] == nullptr))
@@ -158,16 +170,50 @@ bool NetworkEntity::svPublishRequest(AbstractApplication* pAbsApp, SvGroup group
     }
 }
 
+/**
+ * @brief   publish request for an event, i.e. this method is called at the rise of an event and adds this event element to the event list (if possible)
+ *
+ * @param   id          the event ID
+ * @param   evData      the reference to the buffer containing the event data
+ *
+ * @return  void
+ */
 void NetworkEntity::evPublishRequest(EvId id, const SharedByteBuffer & evData)
 {
     EventElement evElm = EventElement(id, evData);      // create new EventElement
     evList.push_back(evElm);                            // add EventElement to end of list
+    if(evList.size() > MAX_EVELM_NBR)
+    {
+        evList_pop_front_multi(CUTOFF_EVELM_NBR);              // remove oldest CUTOFF_EVELM_NBR elements
+    }
 }
 
+/**
+ * @brief   method which is called on timeout events from the TimeSlotManager (virtual in Observer class => necessary to implement!)
+ *
+ * @param   timeSlotManager     the time slot manager
+ * @param   signal              the signal received from the time slot manager
+ *
+ * @return  void
+ */
 void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, const ITimeSlotManager::SIG & signal)
 {
     if(signal == ITimeSlotManager::OWN_SLOT_START)
     {
         (*_pTransceiver) << mPDU;   // send MPDU to transceiver
     }
+}
+
+/**
+ * @brief   delete a specific number of elements from the front of the evList
+ *
+ * @param   elmNbr      the desired number of elements to erase at the front
+ *
+ * @return  void
+ */
+void NetworkEntity::evList_pop_front_multi(uint8_t elmNbr)
+{
+    auto cutoff_idx = evList.begin();
+    std::advance(cutoff_idx, elmNbr);
+    evList.erase(evList.begin(),cutoff_idx);
 }
