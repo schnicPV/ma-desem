@@ -148,7 +148,7 @@ void MultiPDU::clear()
 {
     // reset count and length variables
     ePDUcnt = 0;
-    currentDataByteIdx = EMPTY_DATA_LENGTH;     // +1 because we want to start just after the empty length
+    currentDataByteIdx = EMPTY_DATA_LENGTH;
 
     // reset the buffer
     updateHeaderLength();
